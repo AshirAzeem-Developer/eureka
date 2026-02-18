@@ -1395,7 +1395,7 @@
         --journalbg: url("https://www.eurekaselect.com/images/jbannerbg/cmc-jbanner.jpg");
       }
     </style>
-    <section id="journal-banner">
+    <section id="journal-banner" aria-label="Journal Banner">
       <div class="container">
         <div class="row">
           <div
@@ -1920,6 +1920,7 @@
                 <div class="card-header">
                   <a
                     class="btn"
+                    role="button"
                     data-toggle="collapse"
                     data-target="#submissions"
                     aria-expanded="false"
@@ -2777,13 +2778,14 @@
             "CAPTCHA code: Enter the characters displayed to verify you are a human",
           );
       </script>
-    </footer>
-    <div class="bg-light py-2 px-0">
-      <div class="container text-center text-md-right">
-        <a href="/terms-and-conditions">© 2026 Bentham Science Publishers</a> |
-        <a href="/privacy-policy">Privacy Policy</a>
+      <div class="bg-light py-2 px-0">
+        <div class="container text-center text-md-right">
+          <a href="/terms-and-conditions">© 2026 Bentham Science Publishers</a>
+          |
+          <a href="/privacy-policy">Privacy Policy</a>
+        </div>
       </div>
-    </div>
+    </footer>
     <script src="https://www.eurekaselect.com/plugins/wow-animate/wow.min.js"></script>
     <script>
       new WOW().init();
@@ -2811,10 +2813,44 @@
     <script src="https://www.eurekaselect.com/js/popper.min.js"></script>
     <!-- <script  src="https://www.eurekaselect.com/js/bootstrap.bundle.min.js">
         </script> -->
+    <!-- Static placeholder for ShareThis injected div – hidden from accessibility tree -->
+    <div
+      id="stcpDiv"
+      aria-hidden="true"
+      style="position: absolute; top: -1999px; left: -1988px"
+    ></div>
     <script
       type="text/javascript"
       src="https://ws.sharethis.com/button/buttons.js"
     ></script>
+    <script>
+      // Reliably hide the ShareThis injected div from the accessibility tree.
+      // MutationObserver catches it whether ShareThis injects it synchronously or async.
+      (function () {
+        function markHidden(el) {
+          el.setAttribute("aria-hidden", "true");
+        }
+        // If already in DOM (e.g. static placeholder below), mark it immediately.
+        var existing = document.getElementById("stcpDiv");
+        if (existing) markHidden(existing);
+
+        // Watch for future injection by ShareThis.
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (node) {
+              if (node.nodeType === 1) {
+                if (node.id === "stcpDiv") markHidden(node);
+                var inner =
+                  node.querySelector && node.querySelector("#stcpDiv");
+                if (inner) markHidden(inner);
+              }
+            });
+          });
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+      })();
+    </script>
+
     <script>
       // share on social network link
       stLight.options({
