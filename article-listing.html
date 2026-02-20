@@ -255,6 +255,7 @@
               href="#"
               id="login-wig"
               data-toggle="dropdown"
+              style="color: #212529 !important"
               ><i class="far fa-user"></i> Login</a
             >
             <div class="dropdown-menu login-pop" id="login-wigs">
@@ -402,13 +403,18 @@
             <a
               class="btn btn-link text-dark"
               href="https://www.eurekaselect.com/register"
+              style="color: #212529 !important"
             >
               <i class="fas fa-user-plus" aria-label="register link"> </i>
 
               Register
             </a>
 
-            <a class="btn btn-link text-dark" href="/cart">
+            <a
+              class="btn btn-link text-dark"
+              href="/cart"
+              style="color: #212529 !important"
+            >
               <i class="fas fa-shopping-cart" aria-label="cart link"> </i>
 
               Cart
@@ -1460,7 +1466,7 @@
       }
     </style>
 
-    <section id="journal-banner">
+    <section id="journal-banner" aria-label="Journal information">
       <div class="container">
         <div class="row">
           <div
@@ -2067,12 +2073,12 @@
                       >Preface</span
                     >
 
-                    <h4 class="card-title">
+                    <h3 class="card-title">
                       <a href="https://www.eurekaselect.com/article/151888"
                         >Navigating Vulnerability and Potential: Global
                         Perspectives on Adolescent Psychiatry</a
                       >
-                    </h4>
+                    </h3>
                     <p>
                       Pp: i-ii
 
@@ -3853,12 +3859,12 @@
                       >Cross-Sectional Study</span
                     >
 
-                    <h4 class="card-title">
+                    <h3 class="card-title">
                       <a href="https://www.eurekaselect.com/article/148393"
                         >The Association between Game Addiction and Feelings of
                         Loneliness and Depression in Adolescents</a
                       >
-                    </h4>
+                    </h3>
                     <p>
                       Pp: 87-98
 
@@ -5144,13 +5150,14 @@
             "CAPTCHA code: Enter the characters displayed to verify you are a human",
           );
       </script>
-    </footer>
-    <div class="bg-light py-2 px-0">
-      <div class="container text-center text-md-right">
-        <a href="/terms-and-conditions">© 2026 Bentham Science Publishers</a> |
-        <a href="/privacy-policy">Privacy Policy</a>
+      <div class="bg-light py-2 px-0">
+        <div class="container text-center text-md-right">
+          <a href="/terms-and-conditions">© 2026 Bentham Science Publishers</a>
+          |
+          <a href="/privacy-policy">Privacy Policy</a>
+        </div>
       </div>
-    </div>
+    </footer>
 
     <script src="https://www.eurekaselect.com/plugins/wow-animate/wow.min.js"></script>
     <script>
@@ -5184,6 +5191,33 @@
       type="text/javascript"
       src="https://ws.sharethis.com/button/buttons.js"
     ></script>
+    <script>
+      // Hide ShareThis injected div from accessibility tree (fixes region landmark violation)
+      (function () {
+        function hideStcpDiv() {
+          var el = document.getElementById("stcpDiv");
+          if (el) {
+            el.setAttribute("aria-hidden", "true");
+            el.setAttribute("role", "presentation");
+          }
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", function () {
+            hideStcpDiv();
+            var observer = new MutationObserver(function () {
+              hideStcpDiv();
+            });
+            observer.observe(document.body, { childList: true, subtree: true });
+          });
+        } else {
+          hideStcpDiv();
+          var observer = new MutationObserver(function () {
+            hideStcpDiv();
+          });
+          observer.observe(document.body, { childList: true, subtree: true });
+        }
+      })();
+    </script>
     <script>
       // share on social network link
       stLight.options({
