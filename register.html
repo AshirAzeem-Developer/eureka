@@ -1,0 +1,2512 @@
+<script src="https://www.eurekaselect.comhttps://www.recaptcha.net/recaptcha/api.js"></script>
+
+<link
+  href="https://www.eurekaselect.com/assets/vendors/select2/css/select2.min.css"
+  type="text/css"
+  rel="stylesheet"
+/>
+
+<link
+  href="https://www.eurekaselect.com/assets/vendors/select2/css/select2-bootstrap.css"
+  rel="stylesheet"
+/>
+
+<script
+  src="https://www.eurekaselect.com/js/jquery.min.js"
+  type="text/javascript"
+></script>
+
+<script type="text/javascript">
+  function testUtype() {
+    var test = $("#user_type").val();
+
+    if (test == "user") {
+      $("#org-name-wrapper").hide();
+
+      $("#contact-no-wrapper").hide();
+    }
+
+    if (test == "Org") {
+      $("#org-name-wrapper").show();
+
+      $("#contact-no-wrapper").show();
+    }
+  }
+
+  $("#countries").select2({
+    templateResult: formatState,
+
+    templateSelection: formatState,
+
+    placeholder: "select a country",
+
+    theme: "bootstrap",
+  });
+</script>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.eurekaselect.comhttps://www.googletagmanager.com/gtag/js?id=G-9F3B5VV3T3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-9F3B5VV3T3");
+    </script>
+    <meta charset="utf-8" />
+    <title>Register | Bentham Science</title>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <!-- CSRF Token -->
+
+    <meta
+      content="4OsNYwcZ84UMJii9DchFJwKK20vxdrMmZwENnfHv"
+      name="csrf-token"
+    />
+    <!-- Scripts -->
+    <script
+      defer=""
+      src="https://www.eurekaselect.comhttps://www.eurekaselect.com/js/app.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://www.eurekaselect.comhttps://www.eurekaselect.com/js/jquery.min.js"
+    ></script>
+    <!-- Fonts -->
+    <script src="https://www.eurekaselect.comhttps://www.eurekaselect.com/js/all.min.js"></script>
+    <!-- Styles -->
+    <!-- Bootstrap CSS -->
+
+    <link
+      href="https://www.eurekaselect.com/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://www.eurekaselect.com/css/style.css"
+      media="all"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.eurekaselect.com/plugins/animate-hover/hover-min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.eurekaselect.com/plugins/wow-animate/animate.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.eurekaselect.com/assets/vendors/select2/css/select2.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.eurekaselect.com/assets/vendors/select2/css/select2-bootstrap.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://www.eurekaselect.com/favicon.png"
+    />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-5HWC8W72");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.eurekaselect.comhttps://www.googletagmanager.com/ns.html?id=GTM-5HWC8W72"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!----Header Section Starts---->
+    <!----Header Section Starts---->
+    <header>
+      <div class="container">
+        <script
+          src="https://www.eurekaselect.comhttps://www.recaptcha.net/recaptcha/api.js"
+          async
+          defer
+        ></script>
+
+        <div class="row flex justify-content-between align-items-center">
+          <div class="col-md-2">
+            <a href="/"
+              ><img
+                src="https://www.eurekaselect.com/images/logo.png"
+                alt="Eurekaselect logo"
+                class="hvr-grow logo"
+            /></a>
+          </div>
+
+          <div class="col-md-5">
+            <a
+              class="hidden-xs hidden-sm hor-banner"
+              target="_blank"
+              rel="noopener"
+              href="https://bit.ly/41m0zYJ"
+              ><img
+                alt="Bentham Newsletter"
+                src="https://www.eurekaselect.com/images/bentham_newsletter.webp"
+                title="newsletter banner"
+              /><span class="sr-only sr-only-focusable"
+                >newsletter banner</span
+              ></a
+            >
+
+            <form
+              class="search mt-md-2 mb-md-4"
+              action="https://www.eurekaselect.com/keywordsearch"
+              id="searchFormUnique"
+              role="search"
+            >
+              <div class="input-group">
+                <input
+                  type="text"
+                  name="searchvalue"
+                  class="form-control"
+                  placeholder="Search here..."
+                  aria-label="Search anything here"
+                  autocomplete="off"
+                  value=""
+                />
+
+                <div class="input-group-append">
+                  <div class="border-left">
+                    <select
+                      class="form-control border-right-0 border-top-0 border-bottom-0 rounded-0"
+                      name="search_type"
+                      aria-label="Search Journal/Articles/Website/Keyword"
+                    >
+                      <option value="article_search">Search Articles</option>
+                      <option value="journal_search">Search Journal</option>
+                      <option value="other_search">Search Others</option>
+                    </select>
+                  </div>
+                  <button
+                    name="search"
+                    type="submit"
+                    title="Search"
+                    id="searchButtonUnique"
+                  >
+                    <i class="fas fa-search"
+                      ><span class="sr-only sr-only-focusable"
+                        >Search anything here</span
+                      ></i
+                    >
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-lg-5 col-md-5 pt-md-4 top-links text-right">
+            <!-- Authentication Links -->
+
+            <a
+              class="btn btn-link text-dark dropdown-toggle"
+              href="#"
+              id="login-wig"
+              data-toggle="dropdown"
+              role="button"
+              ><i class="far fa-user"></i> Login</a
+            >
+            <div class="dropdown-menu login-pop" id="login-wigs">
+              <h2 class="h5 text-center">Login</h2>
+
+              <hr />
+
+              <form
+                method="POST"
+                action="https://www.eurekaselect.com/login"
+                aria-label="Login"
+              >
+                <input
+                  type="hidden"
+                  name="_token"
+                  value="4OsNYwcZ84UMJii9DchFJwKK20vxdrMmZwENnfHv"
+                  autocomplete="off"
+                />
+                <div class="form-group">
+                  <input
+                    id="identity"
+                    type="identity"
+                    class="font-14 form-control form-control-sm"
+                    name="identity"
+                    value=""
+                    aria-label="enter user id"
+                    placeholder="E-Mail/User"
+                    required
+                    autofocus
+                  />
+                </div>
+
+                <div class="form-group">
+                  <input
+                    id="password"
+                    type="password"
+                    class="font-14 form-control form-control-sm"
+                    name="password"
+                    placeholder="Password"
+                    aria-label="enter password"
+                    required
+                  />
+                </div>
+
+                <div class="form-group mb-0">
+                  <div class="captcha row">
+                    <div class="col-md-6">
+                      <span
+                        ><img
+                          src="https://www.eurekaselect.comhttps://www.eurekaselect.com/captcha/default?7cDQEyI9"
+                          alt="CAPTCHA Image"
+                      /></span>
+                    </div>
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <input
+                      id="captcha"
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Captcha"
+                      aria-label="enter captcha"
+                      name="captcha"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="custom-control custom-checkbox">
+                    <input
+                      type="checkbox"
+                      class="custom-control-input form-check-input"
+                      name="remember"
+                      id="remember"
+                    />
+
+                    <label class="custom-control-label" for="remember"
+                      >Remember Me</label
+                    >
+                  </div>
+                </div>
+
+                <!--div class="form-group">
+
+                                    <div class="form-check">
+
+                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" >
+
+
+
+                                        <label class="form-check-label" for="remember">
+
+                                            Remember Me
+
+                                        </label>
+
+                                    </div>
+
+                                </div-->
+
+                <div class="form-group row mb-0">
+                  <div class="col-md-12 mb-3">
+                    <button
+                      type="submit"
+                      class="btn bg-primary-light text-white btn-sm btn-block"
+                    >
+                      Login
+                    </button>
+                  </div>
+
+                  <div class="col-md-12">
+                    <a
+                      href="https://www.eurekaselect.net/public/openathens/index.php"
+                      class="btn bg-primary-light text-white btn-sm btn-block"
+                      role="button"
+                    >
+                      OpenAthens Login
+                    </a>
+                  </div>
+                </div>
+
+                <div class="dropdown-divider"></div>
+
+                <a
+                  class="dropdown-item px-0"
+                  href="https://www.eurekaselect.com/remote/login"
+                  role="button"
+                >
+                  Remote Login</a
+                >
+
+                <a
+                  class="dropdown-item px-0"
+                  href="https://www.eurekaselect.com/password/reset"
+                  role="button"
+                >
+                  Forgot Your Password?</a
+                >
+
+                <a
+                  class="dropdown-item px-0"
+                  href="https://www.eurekaselect.com/register"
+                  role="button"
+                >
+                  New around here? Sign up</a
+                >
+              </form>
+            </div>
+
+            <a
+              class="btn btn-link text-dark"
+              href="https://www.eurekaselect.com/register"
+              role="button"
+            >
+              <i class="fas fa-user-plus" aria-label="register link"> </i>
+
+              Register
+            </a>
+
+            <a class="btn btn-link text-dark" href="/cart" role="button">
+              <i class="fas fa-shopping-cart" aria-label="cart link"> </i>
+
+              Cart
+
+              <span class="badge badge-dark"> 0 </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <nav id="fixed-header" class="navbar navbar-expand-lg">
+        <div class="container">
+          <button
+            class="navbar-toggler border-0"
+            title="navigation"
+            type="button"
+            data-toggle="offcanvas"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <div
+            class="navbar-collapse offcanvas-collapse"
+            id="navbarSupportedContent"
+          >
+            <ul class="navbar-nav mr-auto">
+              <li class="text-right">
+                <button
+                  class="navbar-toggler border-0"
+                  type="button"
+                  data-toggle="offcanvas"
+                  aria-label="close mobile navigation"
+                >
+                  <i class="fas fa-times"></i>
+                </button>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarByDisease"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >About</a
+                >
+                <div class="dropdown-menu" aria-labelledby="navbarByDisease">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2 class="h4 text-md-center">About</h2>
+                    </div>
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li><a href="/about-us">About Us</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li>
+                          <a href="/pages/mission-statement-history"
+                            >Mission Statement & History</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li><a href="/contact-us">Contact Us</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarPublications"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Publications
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarPublications">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h2 class="h4 text-md-center">Journals</h2>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <img
+                            src="https://www.eurekaselect.comhttps://www.eurekaselect.com/assets/images/library.svg"
+                            alt="Journals"
+                          />
+                        </div>
+                        <div class="col-md-8">
+                          <ul class="submenu-level1">
+                            <li><a href="/bypublication">By Title</a></li>
+                            <li><a href="/browse_by_subject">By Subject</a></li>
+                            <!-- <li><a href="/sdg-journal">By SDGs</a></li> -->
+                            <!-- <li><a href="/browse-by-pharmacy-collection">By Bentham Collection</a></li>
+                -->
+                            <li>
+                              <a href="/pages/patent-journals"
+                                >Patent Journals</a
+                              >
+                            </li>
+                            <li>
+                              <a href="/free-online-samples"
+                                >Free Online Samples</a
+                              >
+                            </li>
+                            <li>
+                              <a href="/journal-impacting-science"
+                                >Journals Impacting Science</a
+                              >
+                            </li>
+                            <li>
+                              <a href="/journals-catalog">Journals Catalog</a>
+                            </li>
+                            <li>
+                              <a href="/pages/new-journals-2025"
+                                >New Journals 2025</a
+                              >
+                            </li>
+                            <li>
+                              <a href="/pages/forthcoming-titles"
+                                >Forthcoming Titles</a
+                              >
+                            </li>
+                            <li>
+                              <a href="/subscriptions-pricing-ordering"
+                                >Price and Ordering Information</a
+                              >
+                            </li>
+                            <li>
+                              <a href="/journal-subscriptions/2025"
+                                >Subscription Rates 2025</a
+                              >
+                            </li>
+                            <li>
+                              <a href="/journal-subscriptions/2026"
+                                >Subscription Rates 2026</a
+                              >
+                            </li>
+                            <li><a href="/endorsements">Endorsements</a></li>
+                            <li>
+                              <a href="/trial-requests">Free Online Trials</a>
+                            </li>
+                            <li>
+                              <a href="/independent-journals"
+                                >Independent Journals</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <h2 class="h4 text-md-center">Books</h2>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <img
+                            src="https://www.eurekaselect.com/images/studying.svg"
+                            alt="e-Books"
+                          />
+                        </div>
+                        <div class="col-md-8">
+                          <ul class="submenu-level1">
+                            <li><a href="/bybook">By Title</a></li>
+                            <li>
+                              <a href="/browse_by_ebook_subject">By Subject</a>
+                            </li>
+                            <!--    <li><a href="/sdg-ebook">By SDGs</a></li>  -->
+                            <!--    <li><a href="/browse-by-ebook-collection">By Bentham Collection</a></li>
+
+                 -->
+                            <li>
+                              <a href="/bybook/series">By Series Books</a>
+                            </li>
+                            <li><a href="/bybook/general">By Text Books</a></li>
+                            <li>
+                              <a href="/bybook/open_access"
+                                >By Open Access Books</a
+                              >
+                            </li>
+                            <li><a href="/bybook/video">By Video Books</a></li>
+                            <li><a href="/books-catalog">Books Catalog</a></li>
+                            <!--<li><a href="/forthcoming/generalebook">Upcoming Books</a></li>-->
+                            <li>
+                              <a href="/book-trial-requests">EBook Trial</a>
+                            </li>
+                            <li class="lister">
+                              <a
+                                data-toggle="collapse"
+                                href="#forthcoming"
+                                role="button"
+                                aria-expanded="false"
+                                >Forthcoming
+                                <i class="fas fa-angle-right float-right"></i
+                              ></a>
+                              <div class="collapse" id="forthcoming">
+                                <ul class="submenu-level2">
+                                  <li>
+                                    <a
+                                      href="https://benthambooks.com/forthcoming-title/P/"
+                                      >Forthcoming Titles</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="https://benthambooks.com/forthcoming-series/F/"
+                                      >Forthcoming Series</a
+                                    >
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+                            <li class="lister">
+                              <a
+                                data-toggle="collapse"
+                                href="#future-a"
+                                role="button"
+                                aria-expanded="false"
+                                >Future Attraction
+                                <i class="fas fa-angle-right float-right"></i>
+                              </a>
+                              <div class="collapse" id="future-a">
+                                <ul class="submenu-level2">
+                                  <li>
+                                    <a
+                                      href="https://benthambooks.com/future-books-by-subject/business-and-economics-and-finance-and-accounting/"
+                                      >Future Titles</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a
+                                      href="https://benthambooks.com/future-series-by-subject/business-and-economics-and-finance-and-accounting/"
+                                      >Future Series</a
+                                    >
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+                            <li><a href="/book-proposal">Propose a Book</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarCallForPapers"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >Publish with us</a
+                >
+                <div
+                  class="dropdown-menu"
+                  aria-labelledby="navbarCallForPapers"
+                >
+                  <h2 class="h4 text-center">Call for Papers</h2>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h3 class="h5 border-bottom pb-2">
+                        Submission for General Articles
+                      </h3>
+                      <ul class="submenu-level1">
+                        <li>
+                          <a
+                            href="https://www.eurekaselect.com/browse_by_subject/callforpaper"
+                            >Submit Abstract</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.eurekaselect.com/browse_by_subject/callforpaper"
+                            >Submit Manuscript</a
+                          >
+                        </li>
+                        <!-- <li><a href="https://bentham.manuscriptpoint.com/journals">Animated Abstract Submission</a></li> -->
+                        <li>
+                          <a href="https://www.eurekaselect.com/journalfinder"
+                            >Journal Finder</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6">
+                      <h3 class="h5 border-bottom pb-2">
+                        Submit to Thematic Issues
+                      </h3>
+                      <ul class="submenu-level1">
+                        <li>
+                          <a href="https://www.eurekaselect.com/call-for-papers"
+                            >Submit Manuscript to Thematic Issues</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.eurekaselect.com/browse_by_subject/callforpaper"
+                            >Submit Thematic Issue Proposal</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <!-- <div class="col-md-4">
+                            <h5 class="border-bottom pb-2">Call for Conference Speakers</h5>
+                            <ul class="submenu-level1">
+                                <li><a href="https://timbc.net/call-for-papers-and-presentations.php" target="_blank" rel="noopener">Call for Abstracts</a></li>
+                            </ul>
+                        </div> -->
+                  </div>
+                </div>
+              </li>
+
+              <!-- <li class="nav-item"><a class="nav-link" href="/read-publish">Read and Publish</a></li> -->
+              <!--li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Bentham Online </a>
+
+
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+
+            <div class="row">
+
+
+
+              <div class="col-md-12">
+
+
+
+                <h4  class="text-md-center">Bentham Online</h4>
+
+
+
+              </div>
+
+
+
+              <div class="col-md-4">
+
+
+
+                <ul class="submenu-level1">
+
+
+
+                  <li><a href="https://benthamsciencepublishers.wordpress.com/" target="_blank">Bentham Insight</a></li>                  
+
+
+
+                  <li><a href="/bypublication" target="_blank">Purchase Articles</a></li>
+
+
+
+                  <li><a href="/search" target="_blank">Search Articles</a></li>
+
+
+
+                </ul>
+
+
+
+              </div>
+
+
+
+              <div class="col-md-4">
+
+
+
+                <ul class="submenu-level1">
+
+
+
+                  
+
+                  <li><a href="https://bentham.manuscriptpoint.com/" target="_blank"> Submit Manuscripts </a></li>
+
+
+
+                </ul>
+
+
+
+              </div>
+
+
+
+            </div>
+
+
+
+          </div>
+
+
+
+        </li-->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarMarketingOpp"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >Marketing Opportunities</a
+                >
+                <div class="dropdown-menu" aria-labelledby="navbarMarketingOpp">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2 class="h4 text-md-center">Marketing Opportunities</h2>
+                    </div>
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li class="lister">
+                          <a
+                            data-toggle="collapse"
+                            href="#advertising"
+                            role="button"
+                            aria-expanded="false"
+                            >Advertising<i
+                              class="fas fa-angle-right float-right"
+                            ></i
+                          ></a>
+                          <div class="collapse" id="advertising">
+                            <ul class="submenu-level2">
+                              <li>
+                                <a
+                                  href="/advertise-with-us"
+                                  id="advertisewithus"
+                                  >Advertise with us</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/advertising-policy"
+                                  >Advertising Policy</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/books-catalog">Books Catalog</a>
+                              </li>
+                              <li>
+                                <a href="/journals-catalog">Journals Catalog</a>
+                              </li>
+                              <li>
+                                <a
+                                  href="/images/pdf/Media-Pack-2024.pdf"
+                                  id="mediapack2024"
+                                  target="_blank"
+                                  rel="noopener"
+                                  >Media Pack 2024</a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li><a href="/media-partners">Media Partners</a></li>
+                        <li>
+                          <a href="/pages/partnering-events-All"
+                            >Partnering Events</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/pages/institutional-members"
+                            >Member Institutions</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/pages/society-members">Member Societies</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li class="lister">
+                          <a
+                            data-toggle="collapse"
+                            href="#eventsbyregion"
+                            role="button"
+                            aria-expanded="false"
+                            >Events by Year<i
+                              class="fas fa-angle-right float-right"
+                            ></i
+                          ></a>
+                          <div class="collapse" id="eventsbyregion">
+                            <ul class="submenu-level2">
+                              <li>
+                                <a href="/pages/partnering-events-2023">2023</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li class="lister">
+                          <a
+                            data-toggle="collapse"
+                            href="#eventssubject"
+                            role="button"
+                            aria-expanded="false"
+                            >Events by Subject Areas<i
+                              class="fas fa-angle-right float-right"
+                            ></i
+                          ></a>
+                          <div class="collapse" id="eventssubject">
+                            <ul class="submenu-level2">
+                              <li>
+                                <a href="/pages/partnering-events-bussiness"
+                                  >Business, Economics and Finance</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/pages/partnering-events-EnergyScience"
+                                  >Energy Science, Engineering and Technology</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/pages/partnering-events-FoodScience"
+                                  >Food Science and Nutrition</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="/pages/partnering-events-GeneticsGenomics"
+                                  >Genetics & Genomics</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/pages/partnering-events-Microbiology"
+                                  >Microbiology</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="/pages/partnering-events-ProteinPeptide"
+                                  >Protein and Peptide Sciences</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/pages/partnering-events-CeramicsGlass"
+                                  >Ceramics, Glass, Composites and Hybrid
+                                  Materials</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="/pages/partnering-events-SurfacesInterfaces"
+                                  >Surfaces, Interfaces, Thin Films, Corrosion,
+                                  Coatings</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="/pages/partnering-events-Anesthesiology"
+                                  >Anesthesiology</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="/pages/partnering-events-AntiInfectives"
+                                  >Anti-Infectives and Infectious Diseases</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/pages/partnering-events-Biomarkers"
+                                  >Biomarkers</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/pages/partnering-events-Cardiology"
+                                  >Cardiology</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/pages/partnering-events-Dermatology"
+                                  >Dermatology</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="/pages/partnering-events-ImmunologyInflammation"
+                                  >Immunology, Inflammation and Allergy</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/pages/partnering-events-Oncology"
+                                  >Oncology</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/pages/partnering-events-Ophthalmology"
+                                  >Ophthalmology</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/pages/partnering-events-Pediatrics"
+                                  >Pediatrics</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/pages/partnering-events-Psychiatry"
+                                  >Psychiatry</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="/pages/partnering-events-RegenerativeMedicine"
+                                  >Regenerative Medicine</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/pages/partnering-events-Surgery"
+                                  >Surgery</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/pages/partnering-events-General"
+                                  >General</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/pages/partnering-events-Neuroscience"
+                                  >Neuroscience</a
+                                >
+                              </li>
+                              <li>
+                                <a href="/pages/partnering-events-Pharmacology"
+                                  >Pharmacology</a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <a href="/pages/exhibit-schedule">Exhibit Schedule</a>
+                        </li>
+                        <li>
+                          <a href="/book-distributor">Book Distributors</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li>
+                          <a href="/promotional-services"
+                            >Promotional Services</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/corporate-sales"
+                            >Resources for Corporates</a
+                          >
+                        </li>
+                        <li><a href="/kudos">Kudos</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarByDisease"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Articles by Disease
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarByDisease">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2 class="h4 text-md-center">Articles By Disease</h2>
+                    </div>
+                    <div class="col-md-8">
+                      <p>
+                        Bentham is offering subject-based scholarly content
+                        collections which are tailored to meet specific research
+                        needs. Researchers can access related articles from
+                        current and back volumes by purchasing access to these
+                        collections. Subscribers will also have access to new
+                        articles as soon as they are published and added to
+                        these collections. With new articles being added to
+                        these collections on a daily basis, the collections
+                        serve as an ideal tool to keep researchers updated with
+                        new developments in the respective fields.
+                      </p>
+                    </div>
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li>
+                          <a href="/alldiseases/295/anti%20inflammatory"
+                            >Anti Inflammatory</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/alldiseases/258/cardiovascular%20disorders"
+                            >Cardiovascular Disorders</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/alldiseases/281/neurological%20disorders"
+                            >Neurological Disorders</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/alldiseases/283/diabetes">Diabetes</a>
+                        </li>
+                        <li><a href="/alldiseases/16/oncology">Oncology</a></li>
+                        <li>
+                          <a href="/alldiseases/622/coronavirus">Coronavirus</a>
+                        </li>
+                      </ul>
+                      <a
+                        href="/alldiseases"
+                        class="btn btn-outline-light ml-4 px-5 mt-2"
+                        >View All</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarLibrarians"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >For Librarians</a
+                >
+                <div class="dropdown-menu" aria-labelledby="navbarLibrarians">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2 class="h4 text-md-center">For Librarians</h2>
+                    </div>
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li>
+                          <a href="/faq-reprint">FAQs for e-prints/reprints</a>
+                        </li>
+                        <li>
+                          <a
+                            href="/images/pdf/JournalCatalog2026.pdf"
+                            target="_blank"
+                            rel="noopener"
+                            >Journal Catalog 2026</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="/images/pdf/JournalCatalog2025.pdf"
+                            target="_blank"
+                            rel="noopener"
+                            >Journal Catalog 2025</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="/images/pdf/JournalCatalog2024.pdf"
+                            target="_blank"
+                            rel="noopener"
+                            >Journal Catalog 2024</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="/images/pdf/JournalCatalog2023.pdf"
+                            id="JournalCatalog2023"
+                            target="_blank"
+                            rel="noopener"
+                            >Journal Catalog 2023</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://benthamalerts.com/"
+                            target="_blank"
+                            rel="noopener"
+                            >Table of Content Alerts</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li>
+                          <a href="/library-recommendation"
+                            >Library Recommendation
+                          </a>
+                        </li>
+                        <li><a href="/trial-requests"> Trial Requests </a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li>
+                          <a href="/order/reprint"> Order Bulk Reprints </a>
+                        </li>
+                        <li>
+                          <a href="/order/eprint"> Order Bulk ePrints </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarauthors"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  For Authors & Editors
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarauthors">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2 class="h4 text-md-center">For Authors & Editors</h2>
+                    </div>
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li>
+                          <a
+                            href="/mps/index.html"
+                            target="_blank"
+                            rel="noopener"
+                            >Manuscript Processing System</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/processing-cycle"
+                            >Publication Cycle - Process Flowchart</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/pages/manuscript-transfer-facility"
+                            >Manuscript Transfer Facility</a
+                          >
+                        </li>
+                        <li><a href="/pages/authorship">Authorship </a></li>
+                        <li>
+                          <a href="/pages/author-benefits">Author Benefits</a>
+                        </li>
+                        <li>
+                          <a href="/increase-visibility-article"
+                            >Increase Visibility of Your Article
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/language-editing">Copyediting Services</a>
+                        </li>
+                        <li><a href="/pages/general-faqs">General FAQs</a></li>
+                        <li>
+                          <a href="/open-access-plus">Open Access Policy</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li>
+                          <a href="/pages/editorial-policies-main"
+                            >Editorial Polices</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/pages/rights-permissions"
+                            >Rights & Permissions</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/self-archiving-policies"
+                            >Archiving Policies
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/pages/publishing-ethics"
+                            >Publishing Ethics and Rectitude
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/pages/conflict-of-interest"
+                            >Conflict of Interest</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/fabricating-stating-false-information"
+                            >Fabricating and Stating False Information</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/research-misconduct">Research Misconduct</a>
+                        </li>
+                        <li>
+                          <a href="/pages/editorial-management"
+                            >Editorial Management</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li>
+                          <a href="/pages/author-guidelines"
+                            >Guidelines for Authors</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/pages/author-support-services"
+                            >Bentham Author Support Services (BASS)</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/pages/short-guide"
+                            >Ethical Guidelines for New Editors</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/pages/guest-editors-guidelines"
+                            >Guidelines for Guest Editors</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/reviewers-guidelines"
+                            >Reviewer Guidelines
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/pages/peer-reviews">Peer Review Workflow</a>
+                        </li>
+                        <li>
+                          <a href="/webinars"
+                            >Webinars for Authors, Editors and Reviewers</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/allegations-from-whistleblowers"
+                            >Allegations from Whistleblowers</a
+                          >
+                        </li>
+                        <li><a href="/kudos">Kudos</a></li>
+                        <li>
+                          <a
+                            href="https://benthamalerts.com/"
+                            target="_blank"
+                            rel="noopener"
+                            >Table of Contents Alert
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarddMore"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  More
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarddMore">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li>
+                          <a href="/order-subscription"
+                            >Ordering &amp; Subscription</a
+                          >
+                        </li>
+                        <li>
+                          <a href="/pages/advisory-board"
+                            >Bentham Advisory Board</a
+                          >
+                        </li>
+                        <li><a href="/feedback">Feedback</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li><a href="/help">Help</a></li>
+                        <li>
+                          <a href="/pages/author-reprints">Author Reprints </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.eurekaselect.com/indexing-agencies"
+                            >Journals: Indexing, Archiving & Databases</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <ul class="submenu-level1">
+                        <li>
+                          <a href="https://www.eurekaselect.com/press-release"
+                            >Press Releases
+                          </a>
+                        </li>
+                        <li><a href="/ebook-news">Books News </a></li>
+                        <li>
+                          <a
+                            href="https://www.eurekaselect.com/indexing-agencies-books"
+                            >Books: Indexing, Archiving & Databases</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 py-4">
+            <div class="card">
+              <h1
+                class="card-header h4 text-center bg-primary-light text-white m-0"
+              >
+                Register
+              </h1>
+
+              <div class="card-body">
+                <p>
+                  Thank you for your interest in registering yourself with
+                  Bentham Science. Registration is necessary to purchase any pay
+                  per view article from Bentham Science. Filling in this form
+                  does not commit you making a purchase. Information you provide
+                  will not be passed on to any third party. Fields marked with
+                  an asterisk * are compulsory. When finished, click continue to
+                  proceed with registration. Full volume access is also
+                  available for corporate and academic institutions. Please
+                  click here for corporate or academic purchase of entire volume
+                  of the Journal(s) or eBook(s).
+                </p>
+
+                <form
+                  method="POST"
+                  action="https://www.eurekaselect.com/register"
+                  aria-label="Register"
+                >
+                  <input
+                    type="hidden"
+                    name="_token"
+                    value="4OsNYwcZ84UMJii9DchFJwKK20vxdrMmZwENnfHv"
+                    autocomplete="off"
+                  />
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="name" class="col-form-label text-md-right"
+                        >User Name</label
+                      >
+
+                      <input
+                        id="name"
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        value=""
+                        required
+                        autofocus
+                      />
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label
+                        for="display_name"
+                        class="col-form-label text-md-right"
+                        >Display Name</label
+                      >
+
+                      <input
+                        id="display_name"
+                        type="text"
+                        class="form-control"
+                        name="display_name"
+                        value=""
+                        required
+                        autofocus
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="email" class="col-form-label text-md-right"
+                        >E-Mail Address</label
+                      >
+
+                      <input
+                        id="email"
+                        type="email"
+                        class="form-control"
+                        name="email"
+                        value=""
+                        required
+                      />
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label
+                        for="user_type"
+                        class="col-form-label text-md-right"
+                        >Register As</label
+                      >
+
+                      <select
+                        name="user_type"
+                        onchange="
+                          javascript: testUtype();
+                          return false;
+                        "
+                        class="form-select form-control"
+                        id="user_type"
+                      >
+                        <option title="New User" value="user">New User</option>
+
+                        <option title="New Organization" value="Org">
+                          New Organization
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row mb-0">
+                    <div
+                      class="col-md-6 mb-3"
+                      id="org-name-wrapper"
+                      style="display: none"
+                    >
+                      <label for="org_name" class="col-form-label text-md-right"
+                        >Organization Name</label
+                      >
+
+                      <input
+                        id="org_name"
+                        type="text"
+                        class="form-control"
+                        name="org_name"
+                        value=""
+                        autofocus
+                      />
+                    </div>
+
+                    <div
+                      class="col-md-6 mb-3"
+                      id="contact-no-wrapper"
+                      style="display: none"
+                    >
+                      <label
+                        for="contact_no"
+                        class="col-form-label text-md-right"
+                        >Organization Contact Number</label
+                      >
+
+                      <input
+                        id="contact_no"
+                        type="text"
+                        class="form-control"
+                        name="contact_no"
+                        value=""
+                        autofocus
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="password" class="col-form-label text-md-right"
+                        >Password</label
+                      >
+
+                      <input
+                        id="password"
+                        type="password"
+                        class="form-control"
+                        name="password"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label
+                        for="password-confirm"
+                        class="col-form-label text-md-right"
+                        >Confirm Password</label
+                      >
+
+                      <input
+                        id="password-confirm"
+                        type="password"
+                        class="form-control"
+                        name="password_confirmation"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label
+                        for="countries"
+                        class="col-form-label text-md-right"
+                        >Country</label
+                      >
+
+                      <select
+                        name="country"
+                        class="form-control select2"
+                        id="countries"
+                      >
+                        <option value="" selected>Select Country</option>
+                        <option value="AF">Afghanistan</option>
+                        <option value="AL">Albania</option>
+                        <option value="DZ">Algeria</option>
+                        <option value="AS">American Samoa</option>
+                        <option value="AD">Andorra</option>
+                        <option value="AO">Angola</option>
+                        <option value="AI">Anguilla</option>
+                        <option value="AR">Argentina</option>
+                        <option value="AM">Armenia</option>
+                        <option value="AW">Aruba</option>
+                        <option value="AU">Australia</option>
+                        <option value="AT">Austria</option>
+                        <option value="AZ">Azerbaijan</option>
+                        <option value="BS">Bahamas</option>
+                        <option value="BH">Bahrain</option>
+                        <option value="BD">Bangladesh</option>
+                        <option value="BB">Barbados</option>
+                        <option value="BY">Belarus</option>
+                        <option value="BE">Belgium</option>
+                        <option value="BZ">Belize</option>
+                        <option value="BJ">Benin</option>
+                        <option value="BM">Bermuda</option>
+                        <option value="BT">Bhutan</option>
+                        <option value="BO">Bolivia</option>
+                        <option value="BA">Bosnia and Herzegowina</option>
+                        <option value="BW">Botswana</option>
+                        <option value="BV">Bouvet Island</option>
+                        <option value="BR">Brazil</option>
+                        <option value="IO">
+                          British Indian Ocean Territory
+                        </option>
+                        <option value="BN">Brunei Darussalam</option>
+                        <option value="BG">Bulgaria</option>
+                        <option value="BF">Burkina Faso</option>
+                        <option value="BI">Burundi</option>
+                        <option value="KH">Cambodia</option>
+                        <option value="CM">Cameroon</option>
+                        <option value="CA">Canada</option>
+                        <option value="CV">Cape Verde</option>
+                        <option value="KY">Cayman Islands</option>
+                        <option value="CF">Central African Republic</option>
+                        <option value="TD">Chad</option>
+                        <option value="CL">Chile</option>
+                        <option value="CN">China</option>
+                        <option value="CX">Christmas Island</option>
+                        <option value="CC">Cocos (Keeling) Islands</option>
+                        <option value="CO">Colombia</option>
+                        <option value="KM">Comoros</option>
+                        <option value="CG">Congo</option>
+                        <option value="CD">
+                          Congo, the Democratic Republic of the
+                        </option>
+                        <option value="CK">Cook Islands</option>
+                        <option value="CR">Costa Rica</option>
+                        <option value="CI">Cote d&#039;Ivoire</option>
+                        <option value="HR">Croatia (Hrvatska)</option>
+                        <option value="CU">Cuba</option>
+                        <option value="CY">Cyprus</option>
+                        <option value="CZ">Czech Republic</option>
+                        <option value="DK">Denmark</option>
+                        <option value="DJ">Djibouti</option>
+                        <option value="DM">Dominica</option>
+                        <option value="DO">Dominican Republic</option>
+                        <option value="EC">Ecuador</option>
+                        <option value="EG">Egypt</option>
+                        <option value="SV">El Salvador</option>
+                        <option value="GQ">Equatorial Guinea</option>
+                        <option value="ER">Eritrea</option>
+                        <option value="EE">Estonia</option>
+                        <option value="ET">Ethiopia</option>
+                        <option value="FK">Falkland Islands (Malvinas)</option>
+                        <option value="FO">Faroe Islands</option>
+                        <option value="FJ">Fiji</option>
+                        <option value="FI">Finland</option>
+                        <option value="FR">France</option>
+                        <option value="GF">French Guiana</option>
+                        <option value="PF">French Polynesia</option>
+                        <option value="TF">French Southern Territories</option>
+                        <option value="GA">Gabon</option>
+                        <option value="GM">Gambia</option>
+                        <option value="GE">Georgia</option>
+                        <option value="DE">Germany</option>
+                        <option value="GH">Ghana</option>
+                        <option value="GI">Gibraltar</option>
+                        <option value="GR">Greece</option>
+                        <option value="GL">Greenland</option>
+                        <option value="GD">Grenada</option>
+                        <option value="GP">Guadeloupe</option>
+                        <option value="GU">Guam</option>
+                        <option value="GT">Guatemala</option>
+                        <option value="GN">Guinea</option>
+                        <option value="GW">Guinea-Bissau</option>
+                        <option value="GY">Guyana</option>
+                        <option value="HT">Haiti</option>
+                        <option value="HM">Heard and Mc Donald Islands</option>
+                        <option value="VA">
+                          Holy See (Vatican City State)
+                        </option>
+                        <option value="HN">Honduras</option>
+                        <option value="HK">Hong Kong</option>
+                        <option value="HU">Hungary</option>
+                        <option value="IS">Iceland</option>
+                        <option value="IN">India</option>
+                        <option value="ID">Indonesia</option>
+                        <option value="IR">Iran (Islamic Republic of)</option>
+                        <option value="IQ">Iraq</option>
+                        <option value="IE">Ireland</option>
+                        <option value="IL">Israel</option>
+                        <option value="IT">Italy</option>
+                        <option value="JM">Jamaica</option>
+                        <option value="JP">Japan</option>
+                        <option value="JO">Jordan</option>
+                        <option value="KZ">Kazakhstan</option>
+                        <option value="KE">Kenya</option>
+                        <option value="KI">Kiribati</option>
+                        <option value="KP">
+                          Korea, Democratic People&#039;s Republic of
+                        </option>
+                        <option value="KR">Korea, Republic of</option>
+                        <option value="KW">Kuwait</option>
+                        <option value="KG">Kyrgyzstan</option>
+                        <option value="LA">
+                          Lao People&#039;s Democratic Republic
+                        </option>
+                        <option value="LV">Latvia</option>
+                        <option value="LB">Lebanon</option>
+                        <option value="LS">Lesotho</option>
+                        <option value="LR">Liberia</option>
+                        <option value="LY">Libyan Arab Jamahiriya</option>
+                        <option value="LI">Liechtenstein</option>
+                        <option value="LT">Lithuania</option>
+                        <option value="LU">Luxembourg</option>
+                        <option value="MO">Macau</option>
+                        <option value="MK">
+                          Macedonia, The Former Yugoslav Republic of
+                        </option>
+                        <option value="MG">Madagascar</option>
+                        <option value="MW">Malawi</option>
+                        <option value="MY">Malaysia</option>
+                        <option value="MV">Maldives</option>
+                        <option value="ML">Mali</option>
+                        <option value="MT">Malta</option>
+                        <option value="MH">Marshall Islands</option>
+                        <option value="MQ">Martinique</option>
+                        <option value="MR">Mauritania</option>
+                        <option value="MU">Mauritius</option>
+                        <option value="YT">Mayotte</option>
+                        <option value="MX">Mexico</option>
+                        <option value="FM">
+                          Micronesia, Federated States of
+                        </option>
+                        <option value="MD">Moldova, Republic of</option>
+                        <option value="MC">Monaco</option>
+                        <option value="MN">Mongolia</option>
+                        <option value="MS">Montserrat</option>
+                        <option value="MA">Morocco</option>
+                        <option value="MZ">Mozambique</option>
+                        <option value="MM">Myanmar</option>
+                        <option value="NA">Namibia</option>
+                        <option value="NR">Nauru</option>
+                        <option value="NP">Nepal</option>
+                        <option value="NL">Netherlands</option>
+                        <option value="AN">Netherlands Antilles</option>
+                        <option value="NC">New Caledonia</option>
+                        <option value="NZ">New Zealand</option>
+                        <option value="NI">Nicaragua</option>
+                        <option value="NE">Niger</option>
+                        <option value="NG">Nigeria</option>
+                        <option value="NU">Niue</option>
+                        <option value="NF">Norfolk Island</option>
+                        <option value="MP">Northern Mariana Islands</option>
+                        <option value="NO">Norway</option>
+                        <option value="OM">Oman</option>
+                        <option value="PK">Pakistan</option>
+                        <option value="PW">Palau</option>
+                        <option value="PA">Panama</option>
+                        <option value="PG">Papua New Guinea</option>
+                        <option value="PY">Paraguay</option>
+                        <option value="PE">Peru</option>
+                        <option value="PH">Philippines</option>
+                        <option value="PN">Pitcairn</option>
+                        <option value="PL">Poland</option>
+                        <option value="PT">Portugal</option>
+                        <option value="PR">Puerto Rico</option>
+                        <option value="QA">Qatar</option>
+                        <option value="RE">Reunion</option>
+                        <option value="RO">Romania</option>
+                        <option value="RU">Russian Federation</option>
+                        <option value="RW">Rwanda</option>
+                        <option value="KN">Saint Kitts and Nevis</option>
+                        <option value="LC">Saint LUCIA</option>
+                        <option value="VC">
+                          Saint Vincent and the Grenadines
+                        </option>
+                        <option value="WS">Samoa</option>
+                        <option value="SM">San Marino</option>
+                        <option value="ST">Sao Tome and Principe</option>
+                        <option value="SA">Saudi Arabia</option>
+                        <option value="SN">Senegal</option>
+                        <option value="CS">Serbia</option>
+                        <option value="SC">Seychelles</option>
+                        <option value="SL">Sierra Leone</option>
+                        <option value="SG">Singapore</option>
+                        <option value="SK">Slovakia (Slovak Republic)</option>
+                        <option value="SI">Slovenia</option>
+                        <option value="SB">Solomon Islands</option>
+                        <option value="SO">Somalia</option>
+                        <option value="ZA">South Africa</option>
+                        <option value="GS">
+                          South Georgia and the South Sandwich Islands
+                        </option>
+                        <option value="ES">Spain</option>
+                        <option value="LK">Sri Lanka</option>
+                        <option value="SH">St. Helena</option>
+                        <option value="PM">St. Pierre and Miquelon</option>
+                        <option value="SD">Sudan</option>
+                        <option value="SR">Suriname</option>
+                        <option value="SJ">
+                          Svalbard and Jan Mayen Islands
+                        </option>
+                        <option value="SZ">Swaziland</option>
+                        <option value="SE">Sweden</option>
+                        <option value="CH">Switzerland</option>
+                        <option value="SY">Syrian Arab Republic</option>
+                        <option value="TW">Taiwan, Province of China</option>
+                        <option value="TJ">Tajikistan</option>
+                        <option value="TZ">Tanzania, United Republic of</option>
+                        <option value="TH">Thailand</option>
+                        <option value="TG">Togo</option>
+                        <option value="TK">Tokelau</option>
+                        <option value="TO">Tonga</option>
+                        <option value="TT">Trinidad and Tobago</option>
+                        <option value="TN">Tunisia</option>
+                        <option value="TR">Turkey</option>
+                        <option value="TM">Turkmenistan</option>
+                        <option value="TC">Turks and Caicos Islands</option>
+                        <option value="TV">Tuvalu</option>
+                        <option value="UG">Uganda</option>
+                        <option value="UA">Ukraine</option>
+                        <option value="AE">United Arab Emirates</option>
+                        <option value="GB">United Kingdom</option>
+                        <option value="US">United States</option>
+                        <option value="UM">
+                          United States Minor Outlying Islands
+                        </option>
+                        <option value="UY">Uruguay</option>
+                        <option value="UZ">Uzbekistan</option>
+                        <option value="VU">Vanuatu</option>
+                        <option value="VE">Venezuela</option>
+                        <option value="VN">Viet Nam</option>
+                        <option value="VG">Virgin Islands (British)</option>
+                        <option value="VI">Virgin Islands (U.S.)</option>
+                        <option value="WF">Wallis and Futuna Islands</option>
+                        <option value="EH">Western Sahara</option>
+                        <option value="YE">Yemen</option>
+                        <option value="ZM">Zambia</option>
+                        <option value="ZW">Zimbabwe</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  <div class="form-row mt-2">
+                    <div class="col-md-8 offset-md-3">
+                      <div
+                        for="terms-conditions"
+                        class="text-md-left custom-control custom-checkbox"
+                      >
+                        <input
+                          type="checkbox"
+                          class="custom-control-input"
+                          name="ebook_reviewer_flag"
+                          id="ebook_reviewer_flag"
+                          value="1"
+                        />
+
+                        <label
+                          class="custom-control-label"
+                          for="ebook_reviewer_flag"
+                        >
+                          <span class="ml-4 text-left d-block">
+                            I would like to register as a book reviewer.</span
+                          ></label
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-row mt-2">
+                    <div class="col-md-8 offset-md-3">
+                      <a
+                        class="btn btn-info ml-md-5 font-weight-bold btn-sm font-12 my-2"
+                        href="javascript:void(0);"
+                        data-toggle="modal"
+                        data-target="#TermCondition"
+                        >View Terms & Conditons</a
+                      >
+
+                      <div
+                        for="terms-conditions"
+                        class="text-md-left custom-control custom-checkbox"
+                      >
+                        <input
+                          type="checkbox"
+                          class="custom-control-input"
+                          name="tc"
+                          id="tc"
+                          required="required"
+                        />
+
+                        <label class="custom-control-label" for="tc">
+                          <span class="ml-4 text-left d-block">
+                            I agree to Bentham Science&#039;s Terms &amp;
+                            Conditions *</span
+                          ></label
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group row mt-3 w-100">
+                    <div class="col-auto mx-auto w-100 d-flex">
+                      <div class="col-md-6 text-right">
+                        <div class="captcha">
+                          <span
+                            ><img
+                              src="https://www.eurekaselect.comhttps://www.eurekaselect.com/captcha/default?2UEs1MNs"
+                              alt="CAPTCHA code refresh"
+                          /></span>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          class="refresh-captcha"
+                          id="refresh-captcha"
+                        >
+                          &#x21bb;
+                        </button>
+                      </div>
+                    </div>
+                    <div class="form-group my-2 mx-auto">
+                      <input
+                        id="captcha"
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter Captcha"
+                        name="captcha"
+                      />
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  <div class="form-group row mb-0">
+                    <div class="text-center m-auto col-md-6 offset-md-4">
+                      <button
+                        type="submit"
+                        class="btn bg-primary-light btn-block text-white"
+                      >
+                        Register
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Terms & Conditions Window Start-->
+
+      <div class="modal fade" id="TermCondition" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header bg-siteblue text-white">
+              <h2 class="h4 modal-title">Website Terms and Conditions</h2>
+
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true" class="text-white">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body text-justify">
+              <div class="row">
+                <div class="col-md-3">
+                  <img
+                    class="img-fluid"
+                    src="https://www.eurekaselect.com/images/handshake.png"
+                    alt=""
+                  />
+                </div>
+
+                <div class="col-md-9">
+                  <p>
+                    These Terms and Conditions apply to the users of Bentham
+                    Science Publishers website.
+                  </p>
+
+                  <p>
+                    By using this website, you agree to be bound by these terms
+                    and conditions. If you do not agree to these terms and
+                    conditions, then please do not use this website.
+                  </p>
+
+                  <p>
+                    All contents on our website including but not limited to
+                    text, graphics, user interfaces, photographs, trademarks,
+                    logos, videos, images, applications, design and layout, are
+                    owned by Bentham Science Publishers and are protected by
+                    copyright, trademark and other intellectual property laws.
+                  </p>
+
+                  <p><strong>Change</strong></p>
+
+                  <p>
+                    Contents of the website and terms and conditions may be
+                    altered by Bentham Science Publishers at any time and
+                    without notice. Your continued use of our website following
+                    any such change means that you agree to abide by the terms
+                    and conditions as amended.
+                  </p>
+
+                  <p><strong>Restrictions on use</strong></p>
+
+                  <p>
+                    You may view, download, save and print single copy of any
+                    material accessed through this website for your own
+                    personal, non-commercial, informational, educational or
+                    scholarly use or scientific research or study, provided that
+                    you keep intact all copyright and other proprietary notices.
+                  </p>
+
+                  <p>
+                    However, you may not copy, display, distribute, disseminate,
+                    modify, publish, reproduce, store, transmit, post, share,
+                    upload, sell, rent, loan, license, translate or create other
+                    derivative works from whole or any part of the content
+                    obtained from our website, in any medium to anyone, except
+                    as otherwise expressly permitted under these terms and
+                    conditions, relevant license or subscription agreement or
+                    authorization by us.
+                  </p>
+
+                  <p>
+                    Systematic retrieval of contents from our website to create
+                    or compile, directly or indirectly, a collection,
+                    compilation, database or directory without our prior written
+                    permission is strictly prohibited. Take printouts of
+                    multiple copies of any content from our website for
+                    commercial, non-profit, free or any other use will also be
+                    considered as an illegal act.
+                  </p>
+
+                  <p><strong>Warranty disclaimer</strong></p>
+
+                  <p>
+                    Bentham Science Publishers aims to keep the website
+                    available for 24 hours a day. However, we do not guarantee
+                    that the website will be uninterrupted, error free or virus
+                    free. We shall not be liable for lost, altered, or corrupted
+                    information or non-availability of the website. Under no
+                    circumstances shall Bentham Science Publishers, its staff,
+                    editors and authors, be liable for any special or
+                    consequential damages that result from the use of, or the
+                    inability to use the materials on this site. No
+                    responsibility is assumed by Bentham Science Publishers, for
+                    any injury and/or damage to persons or property as a matter
+                    of products liability, negligence or otherwise, or from any
+                    use or operation of any methods, products instruction,
+                    advertisements or ideas contained in this website.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Terms & Conditions Window End-->
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img
+              alt="Bentham Science Publishers"
+              class="wow fadeInDown footer-c-logo"
+              src="https://www.eurekaselect.com/images/logo.webp"
+            />
+
+            <div class="col-12 social-icons">
+              <a
+                class="wow bounceInUp hvr-float-shadow"
+                data-wow-delay=".1s"
+                href="https://www.linkedin.com/company/benthamscience"
+                target="_blank"
+                rel="noopener"
+                aria-label="eurekaselect linkedin link"
+              >
+                <i class="fab fa-linkedin-in"> </i>
+              </a>
+
+              <a
+                class="wow bounceInUp hvr-float-shadow"
+                data-wow-delay=".2s"
+                href="https://www.youtube.com/c/benthamsciencepublisher"
+                target="_blank"
+                rel="noopener"
+                aria-label="eurekaselect youtube link"
+              >
+                <i class="fab fa-youtube"> </i>
+              </a>
+
+              <a
+                class="wow bounceInUp hvr-float-shadow"
+                data-wow-delay=".3s"
+                href="https://twitter.com/BenthamScienceP"
+                target="_blank"
+                rel="noopener"
+                aria-label="eurekaselect twitter link"
+              >
+                <i class="fab fa-x-twitter"> </i>
+              </a>
+
+              <a
+                class="wow bounceInUp hvr-float-shadow"
+                data-wow-delay=".4s"
+                href="https://www.facebook.com/BenthamSciencePublishers"
+                target="_blank"
+                rel="noopener"
+                aria-label="eurekaselect facebook link"
+              >
+                <i class="fab fa-facebook-f"> </i>
+              </a>
+
+              <a
+                class="wow bounceInUp hvr-float-shadow"
+                data-wow-delay=".5s"
+                href="https://benthamsciencepublishers.wordpress.com/"
+                target="_blank"
+                rel="noopener"
+                aria-label="eurekaselect wordpress link"
+              >
+                <i class="fab fa-wordpress-simple"> </i>
+              </a>
+
+              <a
+                class="wow bounceInUp kudos hvr-float-shadow"
+                data-wow-delay=".6s"
+                href="/kudos"
+                target="_blank"
+                rel="noopener"
+                aria-label="eurekaselect kudos link"
+              >
+                &nbsp;
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="row quicklinks pt-4">
+              <div class="col-lg-3 col-md-12 pt-lg-5">
+                <h2 class="h3 align-middle wow fadeInUp">Quick Links</h2>
+              </div>
+
+              <div class="col-lg-12 col-xl-9 col-md-12 bracket">
+                <span class="align-middle wow fadeInRight"
+                  ><a href="/bypublication">Journals </a> |
+                  <a href="/bybook"> Books </a> |
+                  <a
+                    href="https://bentham.manuscriptpoint.com
+					
+					"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Submit Articles
+                  </a>
+                  <!--| <a href="">   Authors 
+						
+					Editors  </a> | <a href="">   Societies   </a>-->
+                  |
+                  <a
+                    href="http://benthamalerts.com/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Alerting Services
+                  </a>
+                  | <a href="/open-access-plus"> Open Access Policy </a> |
+                  <a href="/pages/funding-agencies">Funding Agencies</a> |
+                  <a href="/endorsements">Endorsements</a> |
+                  <a href="/author-comments"> Author's Comments & Reviews </a> |
+                  <a
+                    href="https://benthamnewsletter.com/index.php"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Newsletters
+                  </a>
+                  | <a href="/press-release"> Press Release </a> |
+                  <a href="/terms-and-conditions"> Terms and Conditions</a>
+                </span>
+              </div>
+
+              <div class="col-md-12 text-center text-md-right mt-2 mt-md-0">
+                <a
+                  href="https://registry.projectcounter.org/platform/1dfece8a-433e-4a48-8764-55cd7adc7799"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Counter certification"
+                  ><img
+                    class="wow fadeInDown footer-logo"
+                    src="https://www.eurekaselect.com/images/counter-logo.webp"
+                    alt="counter release 5 complaint"
+                  /><span class="sr-only sr-only-focusable"
+                    >Counter logo</span
+                  ></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        document
+          .querySelector(".captcha img")
+          ?.setAttribute(
+            "alt",
+            "CAPTCHA code: Enter the characters displayed to verify you are a human",
+          );
+      </script>
+      <div class="bg-light py-2 px-0">
+        <div class="container text-center text-md-right">
+          <a href="/terms-and-conditions">© 2026 Bentham Science Publishers</a>
+          | <a href="/privacy-policy">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://www.eurekaselect.comhttps://www.eurekaselect.com/plugins/wow-animate/wow.min.js"></script>
+    <script>
+      new WOW().init();
+
+      // Below | login popup | Unable to close on click
+
+      jQuery("#login-wig.dropdown-toggle").on("click", function (e) {
+        if (!$(e.target).closest("#login-wig.dropdown-toggle").length) {
+          $("#login-wig.dropdown-toggle").next().toggle();
+        }
+      });
+
+      jQuery(".dropdown-menu.login-pop").on("click", function (e) {
+        e.stopPropagation();
+      });
+
+      if (1) {
+        $("body").attr("tabindex", "0");
+      } else {
+        alertify.confirm().set({ reverseButtons: true });
+        alertify.prompt().set({ reverseButtons: true });
+      }
+    </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://www.eurekaselect.comhttps://www.eurekaselect.com/js/popper.min.js"></script>
+    <!-- <script  src="https://www.eurekaselect.comhttps://www.eurekaselect.com/js/bootstrap.bundle.min.js">
+        </script> -->
+    <script
+      type="text/javascript"
+      src="https://www.eurekaselect.comhttps://ws.sharethis.com/button/buttons.js"
+    ></script>
+    <script>
+      // share on social network link
+      stLight.options({
+        publisher: "8af06b8c-6cba-4392-83f5-826bd4873e9b",
+        popup: true,
+        servicePopup: true,
+        //shorten:false
+      });
+    </script>
+
+    <script type="text/javascript">
+      if (window.outerWidth > 800) {
+        $(".dropdown-toggle").on("mouseenter", function () {
+          // make sure it is not shown:
+          if (!$(this).parent().hasClass("show")) {
+            $(this).click();
+          }
+        });
+
+        $(".dropdown").on("mouseleave", function () {
+          // make sure it is shown:
+          if ($(this).hasClass("show")) {
+            $(this).children(".dropdown-toggle").first().click();
+            //$(this).children('.dropdown-toggle').class(':not(:hover)');
+          }
+        });
+      }
+
+      $(function () {
+        $('[data-toggle*="offcanvas"]').on("click", function () {
+          $(".offcanvas-collapse").toggleClass("open");
+        });
+      });
+    </script>
+
+    <script type="text/javascript">
+      $("#refresh-captcha").click(function () {
+        $.ajax({
+          type: "GET",
+          url: "/customecaptcha/refresh",
+          success: function (data) {
+            $(".captcha span").html(data.captcha);
+          },
+        });
+      });
+    </script>
+
+    <script>
+      //  Sticky Header
+      window.onscroll = function () {
+        myFunction();
+      };
+      var headeer = document.getElementById("fixed-header");
+      var sticky = headeer.offsetTop;
+
+      function myFunction() {
+        if (window.pageYOffset > sticky) {
+          headeer.classList.add("fixed-top");
+          $("#sticky-menu").addClass("sticky-top");
+        } else {
+          headeer.classList.remove("fixed-top");
+          $("#sticky-menu").removeClass("sticky-top");
+        }
+      }
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        ((i[r] =
+          i[r] ||
+          function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date()));
+        ((a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]));
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "script",
+        "//www.google-analytics.com/analytics.js",
+        "ga",
+      );
+
+      ga("create", "UA-33930356-3", "auto");
+      ga("send", "pageview");
+    </script>
+
+    <!-- Page search script for highlight a word which is found on URL -->
+    <script>
+      // Function to highlight a word or phrase in the page
+      function highlightWord(word) {
+        if (!word) return; // If no word to highlight, do nothing
+
+        // Escape special characters
+        const escapedWord = word.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+
+        // Regex to find exact word or phrase (case-insensitive)
+        let regex = new RegExp(`(\\b${escapedWord}\\b)`, "gi");
+
+        let firstMatchElement = null; // To store the first highlighted element
+
+        // Function to walk through the document and highlight text nodes
+        function walk(node) {
+          if (node.nodeType === 3) {
+            const text = node.nodeValue;
+            if (regex.test(text)) {
+              const newText = text.replace(regex, (match) => {
+                return `<span class="search-highlight">${match}</span>`;
+              });
+
+              const span = document.createElement("span");
+              span.innerHTML = newText;
+
+              // If we haven't saved the first match yet, find it here
+              if (!firstMatchElement) {
+                firstMatchElement = span.querySelector(".search-highlight");
+              }
+
+              node.replaceWith(span);
+            }
+          } else if (node.nodeType === 1) {
+            for (let i = 0; i < node.childNodes.length; i++) {
+              walk(node.childNodes[i]);
+            }
+          }
+        }
+
+        // Start walking the document body
+        walk(document.body);
+
+        // Scroll to the first match if found
+        if (firstMatchElement) {
+          firstMatchElement.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }
+      }
+
+      // Get the fragment identifier from the URL
+      const urlFragment = window.location.hash.substr(1);
+      const decodedFragment = decodeURIComponent(urlFragment);
+
+      if (decodedFragment) {
+        highlightWord(decodedFragment);
+        history.replaceState(null, null, window.location.pathname);
+      }
+    </script>
+
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'9d6e1fc3a82dd055',t:'MTc3MjU5ODQwMA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
