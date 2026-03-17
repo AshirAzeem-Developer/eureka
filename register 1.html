@@ -10,6 +10,31 @@
         overflow: hidden;
         position: relative;
       }
+
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: 0;
+        z-index: 10000;
+        background-color: #005fcc;
+        color: #ffffff;
+        padding: 8px 16px;
+        text-decoration: none;
+      }
+
+      .skip-link:focus,
+      .skip-link:focus-visible {
+        left: 0;
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible {
+        outline: 3px solid #005fcc;
+        outline-offset: 2px;
+      }
     </style>
     <meta
       http-equiv="origin-trial"
@@ -1079,11 +1104,8 @@
       src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/17853195162/?random=1772602372579&amp;cv=11&amp;fst=1772602372579&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=45be6321v9240597506z89239752291za20gzb9239752291zd9239752291xea&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=103116026~103200004~115616986~115938466~115938469~116024733~117484252&amp;u_w=1920&amp;u_h=1080&amp;url=https%3A%2F%2Fwww.eurekaselect.com%2Fregister&amp;ref=https%3A%2F%2Fwww.eurekaselect.com%2F&amp;label=ABC&amp;frm=0&amp;tiba=Register%20%7C%20Bentham%20Science&amp;hn=www.googleadservices.com&amp;npa=0&amp;pscdl=noapi&amp;auid=1607674675.1767858472&amp;uaa=x86&amp;uab=64&amp;uafvl=Not%253AA-Brand%3B99.0.0.0%7CGoogle%2520Chrome%3B145.0.7632.159%7CChromium%3B145.0.7632.159&amp;uamb=0&amp;uam=&amp;uap=Windows&amp;uapv=10.0.0&amp;uaw=0&amp;_tu=CA&amp;rfmt=3&amp;fmt=4"
     ></script>
   </head>
-  <body
-    tabindex="0"
-    data-new-gr-c-s-check-loaded="14.1275.0"
-    data-gr-ext-installed=""
-  >
+  <body data-new-gr-c-s-check-loaded="14.1275.0" data-gr-ext-installed="">
+    <a href="#main" class="skip-link">Skip to main content</a>
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
@@ -1195,6 +1217,8 @@
               id="login-wig"
               data-toggle="dropdown"
               role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
               ><svg
                 class="svg-inline--fa fa-user"
                 aria-hidden="true"
@@ -1420,9 +1444,13 @@
         <div class="container">
           <button
             class="navbar-toggler border-0"
-            title="navigation"
+            id="navToggle"
+            title="Toggle navigation"
             type="button"
             data-toggle="offcanvas"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
             <svg
               class="svg-inline--fa fa-bars"
@@ -3048,6 +3076,9 @@
                         href="javascript:void(0);"
                         data-toggle="modal"
                         data-target="#TermCondition"
+                        role="button"
+                        aria-haspopup="dialog"
+                        aria-controls="TermCondition"
                         >View Terms &amp; Conditons</a
                       >
 
@@ -3130,11 +3161,19 @@
 
     <!-- Terms & Conditions Window Start-->
 
-    <div class="modal fade" id="TermCondition" role="dialog">
+    <div
+      class="modal fade"
+      id="TermCondition"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="termsModalTitle"
+    >
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header bg-siteblue text-white">
-            <h4 class="modal-title">Website Terms and Conditions</h4>
+            <h4 class="modal-title" id="termsModalTitle">
+              Website Terms and Conditions
+            </h4>
 
             <button
               type="button"
@@ -3545,13 +3584,6 @@
       jQuery(".dropdown-menu.login-pop").on("click", function (e) {
         e.stopPropagation();
       });
-
-      if (1) {
-        $("body").attr("tabindex", "0");
-      } else {
-        alertify.confirm().set({ reverseButtons: true });
-        alertify.prompt().set({ reverseButtons: true });
-      }
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
@@ -3595,6 +3627,35 @@
           $(".offcanvas-collapse").toggleClass("open");
         });
       });
+    </script>
+
+    <script>
+      (function () {
+        var navToggle = document.getElementById("navToggle");
+        var offcanvas = document.querySelector(".offcanvas-collapse");
+
+        if (navToggle && offcanvas) {
+          navToggle.setAttribute("aria-expanded", "false");
+
+          navToggle.addEventListener("click", function () {
+            setTimeout(function () {
+              var isOpen = offcanvas.classList.contains("open");
+              navToggle.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false",
+              );
+            }, 0);
+          });
+
+          offcanvas.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" || event.key === "Esc") {
+              offcanvas.classList.remove("open");
+              navToggle.setAttribute("aria-expanded", "false");
+              navToggle.focus();
+            }
+          });
+        }
+      })();
     </script>
 
     <script type="text/javascript">
@@ -3797,7 +3858,4 @@
       </style></veepn-lock-screen
     >
   </body>
-  <grammarly-desktop-integration
-    data-grammarly-shadow-root="true"
-  ></grammarly-desktop-integration>
 </html>
