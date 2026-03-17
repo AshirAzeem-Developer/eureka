@@ -95,8 +95,49 @@
       })(window, document, "script", "dataLayer", "GTM-5HWC8W72");
     </script>
     <!-- End Google Tag Manager -->
+
+    <!-- WCAG 2.1 AA: Skip Navigation + Focus Indicator Styles -->
+    <style>
+      /* Skip navigation link – visually hidden until focused */
+      .skip-nav {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        z-index: 9999;
+        padding: 0.75rem 1.25rem;
+        background: #005fcc;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1rem;
+        border-radius: 0 0 4px 4px;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .skip-nav:focus {
+        top: 0;
+        left: 0;
+        outline: 3px solid #ffbf00;
+        outline-offset: 2px;
+      }
+      /* Visible focus indicator for all interactive elements */
+      :focus-visible {
+        outline: 3px solid #005fcc;
+        outline-offset: 2px;
+      }
+      /* Ensure dropdown menus are accessible by keyboard */
+      .dropdown-menu a:focus,
+      .submenu-level1 a:focus,
+      .submenu-level2 a:focus {
+        outline: 3px solid #005fcc;
+        outline-offset: 2px;
+        background-color: rgba(0, 95, 204, 0.1);
+      }
+    </style>
   </head>
   <body>
+    <!-- WCAG 2.1 AA: Skip Navigation Link (Fix 1) -->
+    <a class="skip-nav" href="#ebook-listing">Skip to main content</a>
+
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
@@ -121,7 +162,7 @@
           <div class="col-md-2">
             <a href="/"
               ><img
-                src="/images/logo.png"
+                src="https://www.eurekaselect.com/images/logo.png"
                 alt="Eurekaselect logo"
                 class="hvr-grow logo"
             /></a>
@@ -135,7 +176,7 @@
               href="https://bit.ly/41m0zYJ"
               ><img
                 alt="Bentham Newsletter"
-                src="/images/bentham_newsletter.webp"
+                src="https://www.eurekaselect.com/images/bentham_newsletter.webp"
                 title="newsletter banner"
               /><span class="sr-only sr-only-focusable"
                 >newsletter banner</span
@@ -174,14 +215,11 @@
                   <button
                     name="search"
                     type="submit"
-                    title="Search"
                     id="searchButtonUnique"
+                    aria-label="Search"
                   >
-                    <i class="fas fa-search"
-                      ><span class="sr-only sr-only-focusable"
-                        >Search anything here</span
-                      ></i
-                    >
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <span class="sr-only">Search</span>
                   </button>
                 </div>
               </div>
@@ -191,15 +229,24 @@
           <div class="col-lg-5 col-md-5 pt-md-4 top-links text-right">
             <!-- Authentication Links -->
 
-            <a
+            <button
               class="btn btn-link text-dark dropdown-toggle"
-              href="#"
               id="login-wig"
               data-toggle="dropdown"
-              role="button"
-              ><i class="far fa-user"></i> Login</a
+              type="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="login-wigs"
             >
-            <div class="dropdown-menu login-pop" id="login-wigs">
+              <i class="far fa-user" aria-hidden="true"></i> Login
+            </button>
+            <div
+              class="dropdown-menu login-pop"
+              id="login-wigs"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Login"
+            >
               <h5 class="text-center">Login</h5>
 
               <hr />
@@ -348,18 +395,14 @@
             <a
               class="btn btn-link text-dark"
               href="https://www.eurekaselect.com/register"
-              role="button"
             >
-              <i class="fas fa-user-plus" aria-label="register link"> </i>
-
+              <i class="fas fa-user-plus" aria-hidden="true"></i>
               Register
             </a>
 
-            <a class="btn btn-link text-dark" href="/cart" role="button">
-              <i class="fas fa-shopping-cart" aria-label="cart link"> </i>
-
+            <a class="btn btn-link text-dark" href="/cart">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i>
               Cart
-
               <span class="badge badge-dark"> 0 </span>
             </a>
           </div>
@@ -373,11 +416,13 @@
         <div class="container">
           <button
             class="navbar-toggler border-0"
-            title="navigation"
             type="button"
             data-toggle="offcanvas"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Open navigation menu"
           >
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-bars" aria-hidden="true"></i>
           </button>
           <div
             class="navbar-collapse offcanvas-collapse"
@@ -389,9 +434,10 @@
                   class="navbar-toggler border-0"
                   type="button"
                   data-toggle="offcanvas"
-                  aria-label="close mobile navigation"
+                  aria-expanded="true"
+                  aria-label="Close navigation menu"
                 >
-                  <i class="fas fa-times"></i>
+                  <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
               </li>
               <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
@@ -523,7 +569,10 @@
                       <h4 class="text-md-center">Books</h4>
                       <div class="row">
                         <div class="col-md-4">
-                          <img src="/images/studying.svg" alt="e-Books" />
+                          <img
+                            src="https://www.eurekaselect.com/images/studying.svg"
+                            alt="e-Books"
+                          />
                         </div>
                         <div class="col-md-8">
                           <ul class="submenu-level1">
@@ -556,8 +605,12 @@
                                 href="#forthcoming"
                                 role="button"
                                 aria-expanded="false"
+                                aria-controls="forthcoming"
                                 >Forthcoming
-                                <i class="fas fa-angle-right float-right"></i
+                                <i
+                                  class="fas fa-angle-right float-right"
+                                  aria-hidden="true"
+                                ></i
                               ></a>
                               <div class="collapse" id="forthcoming">
                                 <ul class="submenu-level2">
@@ -582,8 +635,12 @@
                                 href="#future-a"
                                 role="button"
                                 aria-expanded="false"
+                                aria-controls="future-a"
                                 >Future Attraction
-                                <i class="fas fa-angle-right float-right"></i>
+                                <i
+                                  class="fas fa-angle-right float-right"
+                                  aria-hidden="true"
+                                ></i>
                               </a>
                               <div class="collapse" id="future-a">
                                 <ul class="submenu-level2">
@@ -788,8 +845,10 @@
                             href="#advertising"
                             role="button"
                             aria-expanded="false"
+                            aria-controls="advertising"
                             >Advertising<i
                               class="fas fa-angle-right float-right"
+                              aria-hidden="true"
                             ></i
                           ></a>
                           <div class="collapse" id="advertising">
@@ -848,8 +907,10 @@
                             href="#eventsbyregion"
                             role="button"
                             aria-expanded="false"
+                            aria-controls="eventsbyregion"
                             >Events by Year<i
                               class="fas fa-angle-right float-right"
+                              aria-hidden="true"
                             ></i
                           ></a>
                           <div class="collapse" id="eventsbyregion">
@@ -866,8 +927,10 @@
                             href="#eventssubject"
                             role="button"
                             aria-expanded="false"
+                            aria-controls="eventssubject"
                             >Events by Subject Areas<i
                               class="fas fa-angle-right float-right"
+                              aria-hidden="true"
                             ></i
                           ></a>
                           <div class="collapse" id="eventssubject">
@@ -1398,11 +1461,11 @@
       </nav>
     </header>
     <main id="ebook-listing">
-      <section id="listing-search" class="pt-4">
+      <section id="listing-search" class="pt-4" aria-labelledby="books-heading">
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-white">
-              <h1 class="h3">Books</h1>
+              <h1 class="h3" id="books-heading">Books</h1>
 
               <hr />
             </div>
@@ -1530,7 +1593,7 @@
         </div>
       </section>
 
-      <section class="pt-5">
+      <section class="pt-5" aria-label="Book listing">
         <div class="container">
           <div class="row list">
             <div class="col-md-8 col-xl-9">
@@ -1540,7 +1603,7 @@
                     <a href="https://www.eurekaselect.com/ebook_volume/1901">
                       <img
                         class="card-img-top"
-                        src="/images/bentham/1st-bwc.jpg"
+                        src="https://www.eurekaselect.com/images/bentham/1st-bwc.jpg"
                         width="247"
                         height="319"
                         alt="Ebook Image1"
@@ -1570,7 +1633,7 @@
                     <a href="https://www.eurekaselect.com/ebook_volume/1222">
                       <img
                         class="card-img-top"
-                        src="/images/bentham/9781608051731-1.jpg"
+                        src="https://www.eurekaselect.com/images/bentham/9781608051731-1.jpg"
                         width="247"
                         height="319"
                         alt="Ebook Image2"
@@ -1600,7 +1663,7 @@
                     <a href="https://www.eurekaselect.com/ebook_volume/3800">
                       <img
                         class="card-img-top"
-                        src="/images/bentham/9789815305159.jpg"
+                        src="https://www.eurekaselect.com/images/bentham/9789815305159.jpg"
                         width="247"
                         height="319"
                         alt="Ebook Image3"
@@ -1632,7 +1695,7 @@
                     <a href="https://www.eurekaselect.com/ebook_volume/2413">
                       <img
                         class="card-img-top"
-                        src="/images/bentham/9781681086019.jpg"
+                        src="https://www.eurekaselect.com/images/bentham/9781681086019.jpg"
                         width="247"
                         height="319"
                         alt="Ebook Image4"
@@ -1666,7 +1729,7 @@
                     <a href="https://www.eurekaselect.com/ebook_volume/3759">
                       <img
                         class="card-img-top"
-                        src="/images/bentham/9789815223675.jpg"
+                        src="https://www.eurekaselect.com/images/bentham/9789815223675.jpg"
                         width="247"
                         height="319"
                         alt="Ebook Image5"
@@ -1700,7 +1763,7 @@
                     <a href="https://www.eurekaselect.com/ebook_volume/3789">
                       <img
                         class="card-img-top"
-                        src="/images/bentham/9789815305241.jpg"
+                        src="https://www.eurekaselect.com/images/bentham/9789815305241.jpg"
                         width="247"
                         height="319"
                         alt="Ebook Image6"
@@ -1734,7 +1797,7 @@
                     <a href="https://www.eurekaselect.com/ebook_volume/1904">
                       <img
                         class="card-img-top"
-                        src="/images/bentham/2nd-bwc.jpg"
+                        src="https://www.eurekaselect.com/images/bentham/2nd-bwc.jpg"
                         width="247"
                         height="319"
                         alt="Ebook Image7"
@@ -1764,7 +1827,7 @@
                     <a href="https://www.eurekaselect.com/ebook_volume/810">
                       <img
                         class="card-img-top"
-                        src="/images/bentham/9781608051281.gif"
+                        src="https://www.eurekaselect.com/images/bentham/9781608051281.gif"
                         width="247"
                         height="319"
                         alt="Ebook Image8"
@@ -1798,7 +1861,7 @@
                     <a href="https://www.eurekaselect.com/ebook_volume/863">
                       <img
                         class="card-img-top"
-                        src="/images/bentham/9781608050444-1.jpg"
+                        src="https://www.eurekaselect.com/images/bentham/9781608050444-1.jpg"
                         width="247"
                         height="319"
                         alt="Ebook Image9"
@@ -1830,7 +1893,7 @@
                     <a href="https://www.eurekaselect.com/ebook_volume/1900">
                       <img
                         class="card-img-top"
-                        src="/images/bentham/4th-conf.gif"
+                        src="https://www.eurekaselect.com/images/bentham/4th-conf.gif"
                         width="247"
                         height="319"
                         alt="Ebook Image10"
@@ -1860,7 +1923,7 @@
                     <a href="https://www.eurekaselect.com/ebook_volume/1499">
                       <img
                         class="card-img-top"
-                        src="/images/bentham/5th-ICDDT.gif"
+                        src="https://www.eurekaselect.com/images/bentham/5th-ICDDT.gif"
                         width="247"
                         height="319"
                         alt="Ebook Image11"
@@ -1890,7 +1953,7 @@
                     <a href="https://www.eurekaselect.com/ebook_volume/3075">
                       <img
                         class="card-img-top"
-                        src="/images/bentham/9781681087962.jpg"
+                        src="https://www.eurekaselect.com/images/bentham/9781681087962.jpg"
                         width="247"
                         height="319"
                         alt="Ebook Image12"
@@ -1920,7 +1983,7 @@
                 </div>
 
                 <div class="col-md-12 d-inline-flex list-pagination">
-                  <nav>
+                  <nav aria-label="Pagination">
                     <ul class="pagination">
                       <li
                         class="page-item disabled"
@@ -2269,7 +2332,7 @@
             <img
               alt="Bentham Science Publishers"
               class="wow fadeInDown footer-c-logo"
-              src="/images/logo.webp"
+              src="https://www.eurekaselect.com/images/logo.webp"
             />
 
             <div class="col-12 social-icons">
@@ -2395,7 +2458,7 @@
                   aria-label="Counter certification"
                   ><img
                     class="wow fadeInDown footer-logo"
-                    src="/images/counter-logo.webp"
+                    src="https://www.eurekaselect.com/images/counter-logo.webp"
                     alt="counter release 5 complaint"
                   /><span class="sr-only sr-only-focusable"
                     >Counter logo</span
@@ -2438,12 +2501,7 @@
         e.stopPropagation();
       });
 
-      if (1) {
-        $("body").attr("tabindex", "0");
-      } else {
-        alertify.confirm().set({ reverseButtons: true });
-        alertify.prompt().set({ reverseButtons: true });
-      }
+      // WCAG Fix: Removed tabindex on body (body should never be in the tab order)
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
@@ -2640,6 +2698,167 @@
             };
           }
         }
+      })();
+    </script>
+
+    <!-- ============================================================
+         WCAG 2.1 AA – Fix 4: Full Keyboard Navigation for Dropdowns
+         and Login Panel (Enter/Space/Escape/ArrowUp/ArrowDown)
+         ============================================================ -->
+    <script>
+      (function () {
+        "use strict";
+
+        /* ── Helper: get all focusable links inside a dropdown menu ── */
+        function getMenuLinks(menu) {
+          return Array.from(
+            menu.querySelectorAll("a[href], button:not([disabled])"),
+          ).filter(function (el) {
+            return el.offsetParent !== null; // only visible elements
+          });
+        }
+
+        /* ── Helper: open a Bootstrap dropdown via button trigger ── */
+        function openDropdown(toggle, menu) {
+          toggle.setAttribute("aria-expanded", "true");
+          // Bootstrap 3/4 API
+          if (window.$ && $(toggle).dropdown) {
+            $(toggle).dropdown("show");
+          }
+          menu.classList.add("show");
+          var links = getMenuLinks(menu);
+          if (links.length) links[0].focus();
+        }
+
+        /* ── Helper: close a Bootstrap dropdown ── */
+        function closeDropdown(toggle, menu) {
+          toggle.setAttribute("aria-expanded", "false");
+          if (window.$ && $(toggle).dropdown) {
+            $(toggle).dropdown("hide");
+          }
+          menu.classList.remove("show");
+          toggle.focus();
+        }
+
+        /* ── Keyboard handler on nav dropdown toggles ── */
+        document
+          .querySelectorAll(
+            ".nav-link.dropdown-toggle, .navbar-nav .dropdown-toggle",
+          )
+          .forEach(function (toggle) {
+            toggle.addEventListener("keydown", function (e) {
+              var parent = toggle.closest(".dropdown, .nav-item.dropdown");
+              if (!parent) return;
+              var menu = parent.querySelector(".dropdown-menu");
+              if (!menu) return;
+
+              var isOpen =
+                menu.classList.contains("show") ||
+                toggle.getAttribute("aria-expanded") === "true";
+
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                if (isOpen) {
+                  closeDropdown(toggle, menu);
+                } else {
+                  openDropdown(toggle, menu);
+                }
+              } else if (e.key === "Escape" && isOpen) {
+                e.preventDefault();
+                closeDropdown(toggle, menu);
+              } else if (e.key === "ArrowDown") {
+                e.preventDefault();
+                if (!isOpen) openDropdown(toggle, menu);
+                else {
+                  var links = getMenuLinks(menu);
+                  if (links.length) links[0].focus();
+                }
+              }
+            });
+          });
+
+        /* ── Arrow-key navigation inside open dropdown menus ── */
+        document.querySelectorAll(".dropdown-menu").forEach(function (menu) {
+          menu.addEventListener("keydown", function (e) {
+            var links = getMenuLinks(menu);
+            if (!links.length) return;
+            var idx = links.indexOf(document.activeElement);
+
+            if (e.key === "ArrowDown") {
+              e.preventDefault();
+              var next = links[idx + 1] || links[0];
+              next.focus();
+            } else if (e.key === "ArrowUp") {
+              e.preventDefault();
+              var prev = links[idx - 1] || links[links.length - 1];
+              prev.focus();
+            } else if (e.key === "Escape") {
+              e.preventDefault();
+              // Find the parent toggle and close
+              var parent = menu.closest(".dropdown, .nav-item.dropdown");
+              if (parent) {
+                var toggle = parent.querySelector(
+                  ".dropdown-toggle, [aria-expanded]",
+                );
+                if (toggle) closeDropdown(toggle, menu);
+              }
+            } else if (e.key === "Tab") {
+              // Let Tab proceed naturally, but close the menu
+              var parent2 = menu.closest(".dropdown, .nav-item.dropdown");
+              if (parent2) {
+                var toggle2 = parent2.querySelector(".dropdown-toggle");
+                if (toggle2) {
+                  menu.classList.remove("show");
+                  toggle2.setAttribute("aria-expanded", "false");
+                }
+              }
+            }
+          });
+        });
+
+        /* ── Login popup: Escape closes panel & returns focus to trigger ── */
+        var loginTrigger = document.getElementById("login-wig");
+        var loginPanel = document.getElementById("login-wigs");
+
+        if (loginTrigger && loginPanel) {
+          /* Update aria-expanded when Bootstrap toggles the panel */
+          var observer = new MutationObserver(function () {
+            var isVisible =
+              loginPanel.style.display !== "none" &&
+              loginPanel.classList.contains("show");
+            loginTrigger.setAttribute(
+              "aria-expanded",
+              isVisible ? "true" : "false",
+            );
+          });
+          observer.observe(loginPanel, {
+            attributes: true,
+            attributeFilter: ["class", "style"],
+          });
+
+          /* Handle Escape key anywhere inside the login panel */
+          loginPanel.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") {
+              e.stopPropagation();
+              loginPanel.classList.remove("show");
+              loginPanel.style.display = "";
+              loginTrigger.setAttribute("aria-expanded", "false");
+              loginTrigger.focus();
+            }
+          });
+        }
+
+        /* ── Hamburger toggle: keep aria-expanded in sync ── */
+        document
+          .querySelectorAll(
+            '.navbar-toggler[aria-controls="navbarSupportedContent"]',
+          )
+          .forEach(function (btn) {
+            btn.addEventListener("click", function () {
+              var expanded = btn.getAttribute("aria-expanded") === "true";
+              btn.setAttribute("aria-expanded", (!expanded).toString());
+            });
+          });
       })();
     </script>
   </body>
