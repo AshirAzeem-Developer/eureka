@@ -1071,7 +1071,7 @@
             </div>
             <!-- // Col // -->
             <div class="col-md-6 p-0">
-              <ul class="bannerSlider">
+              <ul class="bannerSlider" role="presentation">
                 <li>
                   <img
                     src="https://beta.benthamscience.com/images/neurological-disorder.webp"
@@ -1213,7 +1213,6 @@
         </div>
         <!-- // Container-fluid // -->
       </section>
-
       <section class="knowledge">
         <div class="container">
           <div class="row content">
@@ -1225,37 +1224,38 @@
                 <h3 class="fw-bold">Trending Articles</h3>
               </div>
 
-              <div
-                class="tabs"
-                role="tablist"
-                aria-label="Subject areas and trending articles"
-              >
-                <button
-                  class="tablink mb-2 pb-2"
-                  id="tab-subjects"
-                  role="tab"
-                  aria-controls="tab1"
-                  aria-selected="true"
-                  onclick="
-                    openTab('0');
-                    textChange(0);
-                  "
+              <div class="tabs">
+                <div
+                  role="tablist"
+                  aria-label="Subject areas and trending articles"
                 >
-                  Subjects
-                </button>
-                <button
-                  class="tablink mb-2 pb-2"
-                  id="tab-trending"
-                  role="tab"
-                  aria-controls="tab2"
-                  aria-selected="false"
-                  onclick="
-                    openTab('1');
-                    textChange(1);
-                  "
-                >
-                  Trending Articles
-                </button>
+                  <button
+                    class="tablink mb-2 pb-2"
+                    id="tab-subjects"
+                    role="tab"
+                    aria-controls="tab1"
+                    aria-selected="true"
+                    onclick="
+                      openTab('0');
+                      textChange(0);
+                    "
+                  >
+                    Subjects
+                  </button>
+                  <button
+                    class="tablink mb-2 pb-2"
+                    id="tab-trending"
+                    role="tab"
+                    aria-controls="tab2"
+                    aria-selected="false"
+                    onclick="
+                      openTab('1');
+                      textChange(1);
+                    "
+                  >
+                    Trending Articles
+                  </button>
+                </div>
                 <div
                   id="tab1"
                   class="tab mt-4"
@@ -1576,7 +1576,7 @@
                     class="img-fluid icons"
                     alt="Content Alerts"
                   />
-                  <h5 class="card-title">Content Alerts</h5>
+                  <h3 class="card-title">Content Alerts</h3>
                   <p class="card-text">
                     Get email updates on the latest articles and trending topics
                     from our journals.
@@ -1597,7 +1597,7 @@
                     class="img-fluid icons"
                     alt="Online Trials"
                   />
-                  <h5 class="card-title">Online Trials</h5>
+                  <h3 class="card-title">Online Trials</h3>
                   <p class="card-text">
                     Sign up for free journal trials for limited-time access to
                     articles.
@@ -1616,7 +1616,7 @@
                     class="img-fluid icons"
                     alt="Subscriptions"
                   />
-                  <h5 class="card-title">Subscriptions</h5>
+                  <h3 class="card-title">Subscriptions</h3>
                   <p class="card-text">
                     Enjoy full access to journals and eBooks through your
                     library or institution.
@@ -1744,7 +1744,6 @@
           </div>
         </div>
       </section>
-
       <section class="blogSec">
         <div class="container">
           <div class="heading-text text-center">
@@ -1754,14 +1753,14 @@
           </div>
           <div class="row">
             <div class="col-md-12 mt-5">
-              <ul class="blogSlider">
+              <ul class="blogSlider" role="presentation">
                 <li>
                   <img
                     src="https://beta.benthamscience.com/images/why-we.webp"
                     alt="A Global Knowledge Hub"
                   />
                   <div class="blogTxtHolder">
-                    <h5>Why Publish with Bentham Science?</h5>
+                    <h3>Why Publish with Bentham Science?</h3>
                     <p>
                       Discover why Bentham Science is a trusted publisher for
                       high-impact research. Learn about our rigorous peer-review
@@ -1782,9 +1781,9 @@
                     alt="Double-blind peer review blog"
                   />
                   <div class="blogTxtHolder">
-                    <h5>
+                    <h3>
                       Double-Blind Peer Review: The Fairest Peer Review Choice?
-                    </h5>
+                    </h3>
                     <p>
                       Explore the benefits of double-blind peer review with
                       Bentham Science. Learn how this fair and unbiased process
@@ -1804,10 +1803,10 @@
                     alt="Types of peer review blog"
                   />
                   <div class="blogTxtHolder">
-                    <h5>
+                    <h3>
                       The 5 Different Types of Peer Review: Which one is best
                       for you?
-                    </h5>
+                    </h3>
                     <p>
                       Discover the five main types of peer review including
                       Single-Blind, Double-Blind, Open, Post-Publication, and
