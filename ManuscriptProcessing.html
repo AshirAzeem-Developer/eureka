@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Bentham Online Journal Management System – Manuscript Processing System
+      (MPS)
+    </title>
+
+    <!-- Latest compiled and minified CSS -->
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      /* ── Screen-reader utility ── */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .page-static {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      .page-static .heading,
+      #feedback-form .heading {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        color: #333 !important;
+      }
+      .page-static p {
+        margin-bottom: 15px;
+      }
+      .page-static ol {
+        margin-bottom: 15px;
+      }
+      .page-static ol li {
+        margin: 5px 0;
+      }
+      .order-subs.page-static h4,
+      .contact-us.page-static h4 {
+        margin-bottom: 10px;
+      }
+      .page-static h4 {
+        margin-top: 25px;
+        margin-bottom: 20px;
+      }
+      .page-static.bojms {
+        font-size: 16px;
+        line-height: 1.6em;
+      }
+      .page-static.bojms .nav-tabs {
+        background-color: #737373;
+      }
+      .page-static.bojms .nav-tabs li a {
+        color: #fff;
+        border: none;
+      }
+      /* ── Visible focus style for tab links (brand-safe outline) ── */
+      .page-static.bojms .nav > li > a:focus {
+        color: #fff;
+        border: none;
+        background-color: #555;
+        outline: 3px solid #ffbf47; /* WCAG-compliant gold accent, no brand colour changed */
+        outline-offset: 2px;
+      }
+      .page-static.bojms .nav > li > a:hover {
+        color: #fff;
+        border: none;
+        background-color: #555;
+      }
+      .page-static.bojms .jms-box {
+        color: #fff;
+        margin: 0px;
+        font-size: 4em;
+        border-radius: 7px;
+        text-align: center;
+        padding: 35px 25px;
+        background-color: #06c;
+      }
+      .page-static.bojms .nav-tabs > li.active > a,
+      .page-static.bojms .nav-tabs > li.active > a:focus,
+      .page-static.bojms .nav-tabs > li.active > a:hover {
+        color: #fff;
+        border: none;
+        cursor: default;
+        background-color: #555;
+        border-bottom-color: transparent;
+      }
+      .page-static.bojms ul,
+      .page-static.bojms ol {
+        line-height: 2.2em;
+      }
+
+      /* ── Tab-panel content focus style for keyboard users ── */
+      .tab-pane:focus {
+        outline: 3px solid #ffbf47;
+        outline-offset: 2px;
+      }
+
+      /* ── Inline images: responsive & centred without deprecated align attr ── */
+      .mps-screenshot {
+        display: block;
+        margin: 10px auto;
+        max-width: 100%;
+        width: 600px;
+      }
+
+      /* ── Enquiry link: make it look like body text, not a heading ── */
+      .enquiry-note {
+        font-size: 1em;
+        font-weight: normal;
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════════
+         Skip navigation – WCAG 2.4.1 Bypass Blocks
+    ════════════════════════════════════════════════ -->
+    <a
+      href="#mps-main-content"
+      class="sr-only"
+      style="
+        position: absolute;
+        left: -999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      "
+      onfocus="
+        this.style.cssText =
+          'position:fixed;top:10px;left:10px;width:auto;height:auto;padding:8px 16px;background:#fff;color:#000;border:2px solid #000;z-index:9999;font-size:1rem;text-decoration:none;overflow:visible;'
+      "
+      onblur="
+        this.style.cssText =
+          'position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;'
+      "
+      >Skip to main content</a
+    >
+
+    <!-- ══════════════════════════════════
+         Main landmark – WCAG 1.3.1, 4.1.2
+    ═══════════════════════════════════════ -->
+    <main id="mps-main-content">
+      <div class="page-static bojms container">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- ── Page heading – WCAG 1.3.1, 2.4.6 ─────────────────────── -->
+            <!-- Kept as h1 (was h3 but this is the lone page heading).       -->
+            <h1 class="heading" style="font-size: 1.75em; font-weight: bold">
+              Bentham Online Journal Management System (MPS)
+              <a
+                href="http://www.eurekaselect.com"
+                class="btn btn-default navbar-btn pull-right"
+              >
+                <!-- Glyphicon is decorative; label provided via span text -->
+                <span
+                  class="glyphicon glyphicon-chevron-left"
+                  aria-hidden="true"
+                ></span>
+                Back <span class="sr-only">to EurekaSelect home</span>
+              </a>
+            </h1>
+
+            <hr />
+
+            <div class="col-md-9">
+              <!-- ── Sub-heading – one level below h1 ─────────────────── -->
+              <h2
+                style="font-size: 1.1em; margin-top: 10px; margin-bottom: 10px"
+              >
+                Online Manuscript Submission and Tracking System
+              </h2>
+
+              <p>
+                The <strong>Manuscript Processing System (MPS)</strong> is a
+                web-based submission and tracking platform developed by
+                <strong>Bentham Science Publishers</strong> for efficient, fast,
+                and cost-effective processing of submitted manuscripts. MPS has
+                been designed to enable step-by-step online processing and
+                tracking of manuscripts for authors, editors, and the publisher,
+                from submission to acceptance and final reproduction.
+              </p>
+
+              <hr />
+            </div>
+
+            <div class="col-md-3">
+              <div class="well well-sm">
+                <!-- ── Decorative/branded box – not a heading ─────────── -->
+                <p class="jms-box" aria-hidden="true">MPS</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <!-- ══════════════════════════════════════════════════
+                 Tab widget – WCAG 4.1.2, 1.3.1, 2.1.1, 2.4.3
+                 Bootstrap 3 tabs patched with full ARIA state.
+            ═══════════════════════════════════════════════════════ -->
+            <ul class="nav nav-tabs" role="tablist" aria-label="MPS sections">
+              <li role="presentation" class="active">
+                <a
+                  href="#home"
+                  id="tab-home"
+                  role="tab"
+                  aria-controls="home"
+                  aria-selected="true"
+                  data-toggle="tab"
+                  >Introduction</a
+                >
+              </li>
+
+              <li role="presentation">
+                <a
+                  href="#profile"
+                  id="tab-profile"
+                  role="tab"
+                  aria-controls="profile"
+                  aria-selected="false"
+                  data-toggle="tab"
+                  >Getting Started</a
+                >
+              </li>
+
+              <li role="presentation">
+                <a
+                  href="#messages"
+                  id="tab-messages"
+                  role="tab"
+                  aria-controls="messages"
+                  aria-selected="false"
+                  data-toggle="tab"
+                  >Peer-Reviewing and Editorial Decision</a
+                >
+              </li>
+
+              <li role="presentation">
+                <a
+                  href="#settings"
+                  id="tab-settings"
+                  role="tab"
+                  aria-controls="settings"
+                  aria-selected="false"
+                  data-toggle="tab"
+                  >Online Paper Tracking</a
+                >
+              </li>
+
+              <li role="presentation">
+                <a
+                  href="#settings2"
+                  id="tab-settings2"
+                  role="tab"
+                  aria-controls="settings2"
+                  aria-selected="false"
+                  data-toggle="tab"
+                  >For Enquiries</a
+                >
+              </li>
+            </ul>
+
+            <!-- ── Tab panes ──────────────────────────────────────────── -->
+            <div class="tab-content">
+              <!-- Introduction -->
+              <div
+                role="tabpanel"
+                class="tab-pane active"
+                id="home"
+                aria-labelledby="tab-home"
+                tabindex="0"
+              >
+                <h2>Introduction</h2>
+
+                <hr />
+
+                <p>
+                  MPS is a user-friendly system that can be conveniently
+                  operated. The system allows rapid and easy submission of
+                  original and revised manuscripts and indicates their status
+                  throughout the submission process. Authors who want to submit
+                  a paper must
+                  <a
+                    href="https://bentham.manuscriptpoint.com/journals"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="text-decoration: underline"
+                    >register<span class="sr-only">
+                      (opens in a new tab)</span
+                    ></a
+                  >
+                  and create an MPS account, selecting their desired journal
+                  from the available list during registration.
+                </p>
+
+                <p>
+                  Authors may also search for a journal by typing relevant
+                  keywords into the search bar (as indicated by the arrow on the
+                  homepage).
+                </p>
+
+                <p style="text-align: center">
+                  <img
+                    src="http://www.eurekaselect.com/mps/intro.png"
+                    class="img-thumbnail mps-screenshot"
+                    alt="MPS homepage showing the journal search bar with an arrow indicator"
+                    width="600"
+                  />
+                </p>
+
+                <p>
+                  Each manuscript submission will be followed by a confirmation
+                  e-mail to the corresponding author. Authors can log onto the
+                  MPS at any time to view the status of their manuscripts. The
+                  system will notify the corresponding author by e-mail once a
+                  decision has been made on the peer-reviewed manuscript.
+                </p>
+              </div>
+
+              <!-- Getting Started -->
+              <div
+                role="tabpanel"
+                class="tab-pane"
+                id="profile"
+                aria-labelledby="tab-profile"
+                tabindex="0"
+              >
+                <h2>Getting Started</h2>
+
+                <hr />
+
+                <ol>
+                  <li>
+                    The submission process for authors is simplified into the
+                    following steps: Log on to MPS at
+                    <a
+                      href="https://bentham.manuscriptpoint.com/journals"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >https://bentham.manuscriptpoint.com/journals<span
+                        class="sr-only"
+                      >
+                        (opens in a new tab)</span
+                      ></a
+                    >; if you are a new user you will have to register to create
+                    your account.
+
+                    <p style="text-align: center">
+                      <img
+                        src="http://www.eurekaselect.com/mps/getting-start.png"
+                        class="img-thumbnail mps-screenshot"
+                        alt="MPS login page with the registration link highlighted"
+                        width="600"
+                      />
+                    </p>
+                  </li>
+
+                  <li>
+                    Register yourself as an Author for any Bentham Science
+                    journal.<br />
+
+                    <p style="text-align: center">
+                      <img
+                        src="http://www.eurekaselect.com/mps/getting-start2.png"
+                        class="img-thumbnail mps-screenshot"
+                        alt="MPS author registration form"
+                        width="600"
+                      />
+                    </p>
+                  </li>
+
+                  <li>
+                    The submitting author will receive an email confirmation
+                    from MPS.
+                  </li>
+
+                  <li>
+                    The author can submit an abstract or a complete manuscript
+                    after completing the registration form.
+
+                    <p style="text-align: center">
+                      <img
+                        src="http://www.eurekaselect.com/mps/getting-start3.png"
+                        class="img-thumbnail mps-screenshot"
+                        alt="MPS manuscript submission form"
+                        width="600"
+                      />
+                    </p>
+                  </li>
+
+                  <li>
+                    Upload all required files (MS Word, PDF, or ZIP), including
+                    figures, tables, schemes, or multimedia files.
+                  </li>
+
+                  <li>
+                    When you have selected all the files you wish to upload,
+                    click the Save &amp; Continue button.
+                  </li>
+                </ol>
+              </div>
+
+              <!-- Peer-Reviewing -->
+              <div
+                role="tabpanel"
+                class="tab-pane"
+                id="messages"
+                aria-labelledby="tab-messages"
+                tabindex="0"
+              >
+                <h2>Peer-Reviewing and Editorial Decision</h2>
+
+                <hr />
+
+                <p>
+                  Journals Editors receive an email alert for a new submission
+                  and must then assign reviewers to the manuscript. The
+                  reviewers receive an e-mail requesting peer-review of the
+                  assigned manuscript. Interested reviewers can accept or
+                  decline the offer. Reviewers who accept to review the
+                  manuscript can submit their comments online.
+                </p>
+                <p>
+                  Authors receive a peer-review completion notification with the
+                  editorial decision by e-mail. The authors may retrieve the
+                  reviewers' comments from the MPS. Revised manuscripts must be
+                  submitted along with a response letter. Manuscripts will be
+                  subjected to final review by the Reviewers/Editors and an
+                  editorial decision will be duly conveyed to the authors
+                  regarding their submitted work.
+                </p>
+              </div>
+
+              <!-- Online Paper Tracking -->
+              <div
+                role="tabpanel"
+                class="tab-pane"
+                id="settings"
+                aria-labelledby="tab-settings"
+                tabindex="0"
+              >
+                <h2>Online Paper Tracking</h2>
+
+                <hr />
+
+                <p>
+                  Authors may track all the stages of publication online until
+                  their manuscript is finalized and is ready for publication.
+                  Log onto MPS and click the article title from the available
+                  list of your submitted manuscripts to view the detailed status
+                  at every stage of peer review and editorial decision.
+                </p>
+              </div>
+
+              <!-- For Enquiries -->
+              <div
+                role="tabpanel"
+                class="tab-pane"
+                id="settings2"
+                aria-labelledby="tab-settings2"
+                tabindex="0"
+              >
+                <h2>For Enquiries</h2>
+
+                <hr />
+
+                <!-- ── Was incorrectly an <h4>; changed to paragraph ── -->
+                <p class="enquiry-note">
+                  Please visit
+                  <a
+                    href="http://jms-support.eurekaselect.com/open.php"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >http://jms-support.eurekaselect.com/open.php<span
+                      class="sr-only"
+                    >
+                      (opens in a new tab)</span
+                    ></a
+                  >
+                </p>
+              </div>
+            </div>
+            <!-- /.tab-content -->
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- /#mps-main-content -->
+
+    <!-- ═══════════════════════════════════════════════════
+         Scripts – fixed broken concatenated URLs
+         Original src values prepended the site domain to
+         absolute CDN URLs; corrected to direct CDN paths.
+    ════════════════════════════════════════════════════════ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         WCAG patch – keep aria-selected in sync with Bootstrap tabs
+         Bootstrap 3 does not manage aria-selected natively.
+    ════════════════════════════════════════════════════════════════ -->
+    <script>
+      (function () {
+        "use strict";
+        // Update aria-selected on tab show
+        $('a[role="tab"]').on("shown.bs.tab", function (e) {
+          $('a[role="tab"]').attr("aria-selected", "false");
+          $(e.target).attr("aria-selected", "true");
+        });
+      })();
+    </script>
+  </body>
+</html>
