@@ -1,0 +1,3482 @@
+<script defer="" src="https://beta.benthamscience.com/js/app.js"></script>
+<script
+  type="text/javascript"
+  src="https://beta.benthamscience.com/js/jquery.min.js"
+></script>
+
+<!-- Styles -->
+<!-- Bootstrap CSS -->
+
+<link
+  href="https://beta.benthamscience.com/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  href="https://beta.benthamscience.com/css/sass/main.css"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+<link
+  href="https://beta.benthamscience.com/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+
+<link
+  href="https://beta.benthamscience.com/css/owl.carousel.min.css"
+  rel="stylesheet"
+/>
+<link
+  href="https://beta.benthamscience.com/css/owl.theme.default.min.css"
+  rel="stylesheet"
+/>
+<!-- I left select 2 from old code -->
+<link
+  href="https://beta.benthamscience.com/assets/vendors/select2/css/select2.min.css"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="https://beta.benthamscience.com/assets/vendors/select2/css/select2-bootstrap.css"
+  rel="stylesheet"
+  type="text/css"
+/>
+
+<style type="text/css">
+  #webinar {
+    background: var(--siteblue-bgimage);
+
+    background-size: cover;
+
+    border-radius: 25px;
+  }
+
+  #webinar .nav-link {
+    color: #fff;
+
+    text-align: center;
+  }
+
+  #webinar .nav-link.active {
+    border-radius: 25px;
+
+    color: #333 !important;
+
+    background-color: #fff !important;
+  }
+
+  #webinarContent .card .card-body {
+    min-height: 250px;
+  }
+
+  @media only screen and (min-width: 1300px) {
+    #webinarContent .card .card-body {
+      min-height: 180px;
+    }
+  }
+
+  .partnering_events {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.4s ease;
+  }
+
+  .partnering_events.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* loader */
+  #load-trigger {
+    height: 60px;
+  }
+  .pev-btn {
+    text-align: left;
+    border: none;
+    border-radius: 8px !important;
+    position: relative;
+  }
+  .pev-btn:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-left: 10px solid #ffca10;
+    border-bottom: 10px solid transparent;
+    top: 10px;
+    left: 0;
+    bottom: auto;
+  }
+  .events-cat .btn-dark:focus,
+  .events-cat .btn-dark:active,
+  .pev-btn.active {
+    box-shadow: 0 4px 6px 0.02rem rgb(82 88 93 / 32%);
+    background: var(--bs-yellow) !important;
+    border: none;
+    color: #333333;
+  }
+  .events-cat {
+    padding: 24px;
+    border: none;
+    border-radius: 10px;
+  }
+  .events-cat .subj-heading {
+    color: #014479;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 23px;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid #d1d1d1;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+  }
+  .upcoming-event {
+    display: none;
+  }
+
+  /* Hide cards initially */
+  .partnering_events {
+    display: none;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+  }
+
+  /* visible cards */
+  .partnering_events.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* stagger animation */
+  .partnering_events.show:nth-child(odd) {
+    transition-delay: 0.05s;
+  }
+  .partnering_events.show:nth-child(even) {
+    transition-delay: 0.12s;
+  }
+
+  /* loader */
+  #loader {
+    text-align: center;
+    padding: 20px;
+    display: none;
+  }
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #eee;
+    border-top: 4px solid #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: auto;
+  }
+
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  #load-trigger {
+    height: 80px;
+  }
+</style>
+
+<section
+  class="page-title"
+  style="background-image: url(/images/partnering-events.png)"
+>
+  <div class="container">
+    <div class="content-block">
+      <h1 class="h3">Webinars for Authors, Editors and Reviewers</h1>
+      <div class="content"></div>
+    </div>
+  </div>
+</section>
+
+<section class="webinars bg-lightgrey">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 mb-4">
+        <div class="title-block">
+          <h2 class="h3 fw-bolder">
+            Webinars for Authors, Editors and Reviewers
+          </h2>
+        </div>
+      </div>
+      <div class="col-md-4 text-end mb-4">
+        <button
+          class="th-btn light pev-btn"
+          onclick="filterSelection('Upcoming')"
+        >
+          <i class="fa fa-calendar me-2" aria-hidden="true"></i> Upcoming Events
+        </button>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card card-body events-cat">
+          <button
+            class="th-btn light pev-btn mb-3"
+            onclick="filterSelection('All')"
+          >
+            <i class="fa fa-calendar me-2" aria-hidden="true"></i> ALL Events
+          </button>
+          <h5 class="subj-heading">Events by Subject</h5>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('UN SDGS')"
+          >
+            UN SDGS
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('Medicinal Chemistry')"
+          >
+            Medicinal Chemistry
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('Metabolic Disorders')"
+          >
+            Metabolic Disorders
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('Open Access')"
+          >
+            Open Access
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('Manuscript Processing')"
+          >
+            Manuscript Processing
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('Research Writing')"
+          >
+            Research Writing
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('Data Presentation')"
+          >
+            Data Presentation
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('Peer Review Process')"
+          >
+            Peer Review Process
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('Journal Selection')"
+          >
+            Journal Selection
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('Research Ethics')"
+          >
+            Research Ethics
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('Editorial Communication')"
+          >
+            Editorial Communication
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('Research Funding')"
+          >
+            Research Funding
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('Academic Branding')"
+          >
+            Academic Branding
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('Publishing Quality')"
+          >
+            Publishing Quality Research
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('Boosting Your Citation')"
+          >
+            Boosting Your Citation
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('FAQ')"
+          >
+            FAQ
+          </button>
+          <button
+            class="th-btn mb-3 py-2 pev-btn"
+            onclick="filterSelection('Miscellaneous')"
+          >
+            Miscellaneous
+          </button>
+        </div>
+      </div>
+      <div class="col-md-9 mb-3">
+        <h3 class="h4 border-bottom pb-3 mt-3" id="category_type"></h3>
+        <div
+          id="no-data-msg"
+          class="alert alert-info mt-4"
+          style="display: none"
+        >
+          No events are currently scheduled for this category. Please check back
+          later.
+        </div>
+
+        <div class="cw-item partnering_events upcoming-event">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Writing Your Manuscript Section-by-Section: IMRaD Power!
+            </h5>
+          </div>
+          <div class="excerpt">
+            <p>
+              Master the IMRaD structure for manuscript writing! Gain practical
+              tips on organizing and connecting your research narrative. Learn
+              the RIGHT order for writing and revising -- and save valuable
+              time.
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 15-Jan-26
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://youtu.be/VerG0nveioE"
+                    target="_blank"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events upcoming-event">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Hook Readers Early! Writing Amazing ABSTRACTS & Tantalizing TITLES
+            </h5>
+            <p>
+              Join us and learn how to master the art of writing Abstracts,
+              Titles, and Introductions that immediately hook readers and
+              editors!
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 12-Feb-26
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://us06web.zoom.us/webinar/register/WN_AwQVgpx2QOOm05mOKi_M-w#/registration"
+                    >Register for Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events upcoming-event">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Sharpen Your Academic English for Science Communication
+            </h5>
+            <p>
+              Boost your readability and expand your audience! Gain practical
+              tips for improving clarity and coherence of your science
+              communication in English. This event is for English non-natives
+              and natives alike!
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 12-Mar-26
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://us06web.zoom.us/webinar/register/WN_wErXj4K7Td-oNmhQpbUvZA#/"
+                    >Register for Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events upcoming-event">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Powerful Poster Presentations & Slide Talks: Preparing
+              Step-By-Step
+            </h5>
+            <p>
+              Ace your next research presentation with these essential tips for
+              slide talks, posters, elevator pitches, and Q&A sessions.
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 16-Apr-26
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://us06web.zoom.us/webinar/register/WN_Lq6c3DwWSvmss210GdL9cQ#/"
+                    >Register for Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events upcoming-event">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Building Your Academic Network: Finding Collaborators, Reviewers &
+              Mentors
+            </h5>
+            <p>
+              Build global research connections, find collaborators or mentors,
+              and network effectively in-person and online. Boost your next
+              submission with a list of recommended peer reviewers!
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 14-May-26
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://us06web.zoom.us/webinar/register/WN_r0fTDqIwRJWXtJrFk75FyA#/"
+                    >Register for Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events upcoming-event">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Public Engagement and Science Communication
+            </h5>
+            <p>
+              Make your research accessible to general audiences and to other
+              disciplines. Learn to create plain-language summaries, visual
+              abstracts, short videos, and more. Join us for essential training
+              on expanding your audience and increasing your impact!
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 11-Jun-26
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://us06web.zoom.us/webinar/register/WN_lEKjLvB_SOaXtqQGI6og7A#/registration"
+                    >Register for Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events upcoming-event">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              How To Ethically Use AI in Your Research Writing
+            </h5>
+            <p>
+              In this timely event we focus on using AI ethically to outline,
+              draft, revise, and proofread your research paper, to manage and
+              format your references, and automate repetitive tasks.
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 16-Jul-26
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://us06web.zoom.us/webinar/register/WN_DEdsNEV8Tqm8NzdENMxa_A#/registration"
+                    >Register for Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events upcoming-event">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Social Media and Research Promotion: Accelerate Your Altmetrics
+            </h5>
+            <p>
+              Increase your visibility, impact, and reach by promoting your
+              research on social media platforms like LinkedIn, X, Cassyni, and
+              more.
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 20-Aug-26
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://us06web.zoom.us/webinar/register/WN_GQ4JC-uVRsW-q5LXT3iozA#/registration"
+                    >Register for Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events upcoming-event">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Communicating With Editors and Peer Reviewers (Peer Review Week)
+            </h5>
+            <p>
+              Craft presubmission enquiries and submission cover letters that
+              grab the attention of the journal editor. Learn how to write
+              professional, persuasive peer review rebuttals and handle critical
+              feedback constructively.
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 17-Sep-26
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://us06web.zoom.us/webinar/register/WN_ZchbsX2RTtCUdsW-unuZ0Q#/registration"
+                    >Register for Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events upcoming-event">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              The Widening World of Open Science (Open Access Week)
+            </h5>
+            <p>
+              Join us for this special event to celebrate Open Access Week!
+              We'll discuss how to leverage the power of Open Access and Open
+              Science for your own research and publishing.
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 15-Oct-26
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://us06web.zoom.us/webinar/register/WN_wz07u4t0QZKlbEIGiIiHng#/registration"
+                    >Register for Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events upcoming-event">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Time Management for Researchers: Surviving the Hamster Wheel
+            </h5>
+            <p>
+              Feeling overwhelmed by your research work? Help is here! Learn to
+              us proven techniques like time-blocking, Pomodoro, writing
+              sprints, and habit loops to stay on track and avoid burnout!
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 12-Nov-26
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://us06web.zoom.us/webinar/register/WN_ayykU5r3St-CpOGkqmdzlQ#/registration"
+                    >Register for Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events upcoming-event">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              FAQ Frenzy: Your Top Questions of 2026 Answered!
+            </h5>
+            <p>
+              Our annual end-of-year tradition returns! We review this year's
+              top questions asked by YOU. Join us and gain insights on how to
+              handle universal problems faced by global researchers just like
+              you!
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 10-Dec-26
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://us06web.zoom.us/webinar/register/WN_c6GyeLBTSGqmmzpSCpMC1Q#/registration"
+                    >Register for Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Ethics">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Must-Know Ethics For All Researchers
+            </h5>
+            <p>
+              Safeguard your research career by avoiding common ethical pitfalls
+              like self-plagiarism and predatory journals. Learn to protect your
+              work and uphold research integrity.
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 17-Jul-25
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=5LJx1QFT_es"
+                    target="_blank"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Writing">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Research Writing for Maximum Readability and Reach
+            </h5>
+            <p>
+              Readability and Reach Discover how to structure your paper,
+              streamline the drafting and revision process, and make your
+              writing clear and compelling for editors, reviewers, and readers.
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 21-Aug-25
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=5aDZrlffO9I"
+                    target="_blank"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Peer Review Process">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              The Benefits of Being a Peer Reviewer
+            </h5>
+            <p>
+              Explore how peer reviewing can enhance your research skills,
+              advance your career, and provide valuable experience that applies
+              beyond academia.
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 18-Sep-25
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=CIhzntvg9oc&authuser=0"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Open Access">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Open Access and Open Science: Opening Doors For Researchers
+            </h5>
+            <p>
+              Doors For Researchers Learn about open access publishing and how
+              it can elevate your research visibility and impact. We’ll break
+              down different OA models and offer tips to maximize your benefits.
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 16-Oct-25
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="   https://us06web.zoom.us/webinar/register/WN_uOCIQoyWSPKCJbXyrWZP3A"
+                    >Register for Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Journal Selection">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Selecting a Journal and Submitting Successfully
+            </h5>
+            <p>
+              Streamline your journey through the submission and peer review
+              process, improve communication with journal editors, and get your
+              research published more efficiently.
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 13-Nov-25
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://youtu.be/krUk70XQrME?si=xI0IczWs7RVQ8Kqh"
+                    target="_blank"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events FAQ">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Q&A Extravaganza! We Answer YOUR Top Questions of 2025
+            </h5>
+            <p>
+              Join Dr. Gareth Dyke in this interactive end-of-year event where
+              he answers the most pressing questions from researchers. Have a
+              tough question about research publishing? Bring it to the session!
+            </p>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 11-Dec-25
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://youtu.be/4XezsSdan8U"
+                    target="_blank"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events UN SDGS">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              UN SDGs Research Showcase
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 7-Dec-2023
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=ijVUYyGblt4"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Medicinal Chemistry">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Frontiers in Medicinal Chemistry: Latest Research and Innovations
+              | Bentham Science Webinar (Part-1)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> Oct 2, 2023
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=2lSGBWUZ1s4"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Medicinal Chemistry">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Frontiers in Medicinal Chemistry: Latest Research and Innovations
+              | Bentham Science Webinar (Part-2)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 2-Oct-2023
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=a54NQkm3MZI&t=15s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Metabolic Disorders">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MEDICAL COURSE: MECHANISMS OF MEDICAL DISORDERS (MMD) – INAUGURAL
+              SESSION
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 18-Apr-2022
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=TpiHqcB1Ma0"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Metabolic Disorders">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MECHANISMS OF METABOLIC DISORDERS - SESSION 2 INTRODUCTION DOHaD &
+              Programming
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> May 9, 2022
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=LK_WwDFtG7g"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Metabolic Disorders">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MECHANISMS OF METABOLIC DISORDERS - SESSION 3 INTRODUCTION OBESITY
+              &
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 9-Apr-2022
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=x3zKIA-Lvl4"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Metabolic Disorders">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MMD Obesity & Inflammation SESSION 3
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 14-Apr-2022
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=HedmydrejsY"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Metabolic Disorders">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MEDICAL COURSE: MECHANISMS OF MEDICAL DISORDERS (MMD) – SESSION 4
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 17-May-2022
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=rGw3aHltd7A"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Metabolic Disorders">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Mechanism Of Metabolic Disorders - How Research Breaks Through -
+              Session 6
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 17-May-2022
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=i5fxvADKMAQ"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Metabolic Disorders">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Mechanism Of Metabolic Disorders - How Research Breaks Through -
+              Session 11
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 27-Jul-2022
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=OvLNrbHf884"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Metabolic Disorders">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Mechanism Of Metabolic Disorders - How Research Breaks Through -
+              Session 10
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 18-Jul-2022
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=uOVL9QY65hI"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Open Access">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Understanding How Open Access Can Enhance Your Research Career
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 27-Nov-2024
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=8QrjlbvaSaY"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Open Access">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              WHAT DOES OPEN RESEARCH MEAN FOR YOU? (Part 1)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 7-May-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=Nqin_HAEyjI"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Open Access">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              WHAT DOES OPEN RESEARCH MEAN FOR YOU? (Part 2)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 7-May-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=7vQ23Ei0onQ"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Open Access">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              WHAT DOES OPEN RESEARCH MEAN FOR YOU? (Part 3)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 7-May-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=riPnb0gu7BI"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Manuscript Processing">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              How to Use Manuscript Processing System Effectively?
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 22-Jul-2022
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=c6lYCysilNk"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Writing">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MANAGING MEDICAL WRITING (Part 1)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 6-Aug-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=O4CvBzs0TSY"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Writing">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MANAGING MEDICAL WRITING (Part 2)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 6-Aug-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=iHz1ej-6K14"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Writing">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MANAGING MEDICAL WRITING (Part 3)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 6-Aug-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=ZSaQsoKE7A4"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Writing">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MANAGING MEDICAL WRITING (Part 4)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 6-Aug-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=gp0hKMthMHc"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Writing">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              How to Effectively Write Research Paper? An Intro to Bentham
+              Science
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 15-Dec-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=9UYkv4QIUx0&t=3s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Writing">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Effective English Writing for SCI-Journal Article Acceptance
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 12-Dec-2023
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=LAafYPDMTKg"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Writing">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Effective Research Writing: The RIGHT way to WRITE
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 15-Aug-2024
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=piCZq6THGpw"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Writing">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Writing Your Manuscript
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> Thurs, Jan 25,
+                      2024
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=44HuudpY4tw"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Writing">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Common English Language Mistakes
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 30-Sep-2022
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=oE5QWw09onc"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Data Presentation">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              GO FIGURE! Secrets of Statistics and Data Presentation
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> Thu Jun 13
+                      2024
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=1u190mQyi8k"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Data Presentation">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              STATISTICS AND Data Presentation (Webinar by Bentham Science) –
+              Part 1
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 31-Aug-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=31MnC0kwFuw&t=33s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Data Presentation">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              STATISTICS AND Data Presentation (Webinar by Bentham Science) –
+              Part 2
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 31-Aug-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=OWL2spfa1Zw&t=4s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Data Presentation">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              STATISTICS AND Data Presentation (Webinar by Bentham Science) –
+              Part 3
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 31-Aug-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=SjTBhB_RqOM&t=2s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Data Presentation">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Research Poster and Slide Talks
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 16-Jan-2025
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=7rvxP98lLok"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Peer Review Process">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Managing Peer Review and Communicating with Editors
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 20-Jul-2023
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=e94AYf5EhD8&t=20s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Peer Review Process">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MANAGING PEER REVIEW AS AN EARLY CAREER RESEARCHER (Part 1)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 5-Mar-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=ptuU3fjoZ2U&t=50s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Peer Review Process">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MANAGING PEER REVIEW AS AN EARLY CAREER RESEARCHER (part 2)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 5-Mar-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=1E0hih8hs5E&t=41s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Peer Review Process">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MANAGING PEER REVIEW AS AN EARLY CAREER RESEARCHER (Part 3)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 5-Mar-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=hYXMygKJwrY"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Peer Review Process">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MANAGING PEER-REVIEW PROCESS (BSP - ALACF COLLABORATION) (PART 1)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 6-Apr-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=Y05dWND0sEM&t=24s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Peer Review Process">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MANAGING PEER-REVIEW PROCESS (BSP - ALACF COLLABORATION) (PART 2)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 6-Apr-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=fJY_KIVP5NY&t=22s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Peer Review Process">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MANAGING PEER-REVIEW PROCESS (BSP - ALACF COLLABORATION) (PART 3)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 6-Apr-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=p5eogNKQ3_8&t=26s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Peer Review Process">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              MANAGING PEER-REVIEW PROCESS (BSP - ALACF COLLABORATION) (PART 4)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 6-Apr-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=9Z0JH4zeFII&t=4s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Peer Review Process">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Peer Review: The Power of Positive Communication and the Future of
+              Publishing with Bentham Science
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 13-Dec-2023
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=XiVMgWM5MGw"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Peer Review Process">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Why YOU Should Be a Peer Reviewer (Peer Review Week 2024)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 19-Sep-2024
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=v5R_os7jAMY"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Journal Selection">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Journal Selection and Submission
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 14-Nov-2024
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=NtDK0XfxjEo"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Journal Selection">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Journal Selection TO MAXIMISE YOUR CAREER POTENTIAL (Webinar for
+              Authors part 1)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 18-Dec-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=rS5yl_oyVlU&t=2s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Journal Selection">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Journal Selection TO MAXIMISE YOUR CAREER POTENTIAL (Webinar for
+              Authors Part 2)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 18-Dec-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=rS5yl_oyVlU"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Ethics">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Avoiding Ethics Disasters
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 14-Dec-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=_BPoxCykRAQ"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Ethics">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              UNDERSTANDING RESEARCH ETHICS PART –
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 22-Sep-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=2PsmzD5DGsk&t=16s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Ethics">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Avoiding Ethics Disasters
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 14-Dec-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=_BPoxCykRAQ"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Ethics">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              UNDERSTANDING RESEARCH ETHICS PART – 2
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 22-Sep-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=RMxvg45M13E&t=42s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Ethics">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              UNDERSTANDING RESEARCH ETHICS PART – 3
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 22-Sep-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=xwXz7xaCYdM&t=31s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Ethics">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              UNDERSTANDING RESEARCH ETHICS PART – 4
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 22-Sep-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=jcfImvN7Ook&t=24s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Editorial Communication">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Managing Peer Review and Communicating with Editors
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 20-Jul-2023
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=e94AYf5EhD8&t=20s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Editorial Communication">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Communicating Effectively with Editors and Reviewers
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 16-Dec-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=Xam4ASHJSYE&t=15s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Editorial Communication">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Communicating Effectively with Editors and Reviewers
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 16-Dec-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=Xam4ASHJSYE"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Editorial Communication">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Responding and Communicating Effectively with Editors and
+              Reviewers (Part 1)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 5-Oct-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=IX3P3QxcG0g"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Editorial Communication">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Responding and Communicating Effectively with Editors and
+              Reviewers (Part 2)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 5-Oct-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=nbhrXYyS02A"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Editorial Communication">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Responding and Communicating Effectively with Editors and
+              Reviewers (Part 3)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 5-Oct-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=ydu8P1BPQ9o"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Funding">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Finding Funding: Getting Your Next Research Grant
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 17-Apr-2025
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="http://youtube.com/watch?v=X1iZjPJtWsI"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Research Funding">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Grant Writing for Success
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 18-Apr-2024
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=CA_6yvmlg88"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Academic Branding">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Academic Branding: Improving Your Visibility, Network, And Career
+              Opportunities Part 1
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 9-Jul-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=sxG7_BSPkBM"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Academic Branding">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Academic Branding: Improving Your Visibility, Network, And Career
+              Opportunities Part 2
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 9-Jul-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=4JmGQ9QX5wg"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Academic Branding">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Brand-Building for Researchers: How To Promote Yourself for
+              Maximum Impact
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 20-Feb-2025
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=v0lJlt9Esag"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Publishing Quality Research">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              EBSCO Sweden Roadshow - Bentham Science Workshop on Publishing
+              Quality Research
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 22-Feb-2023
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=ft8NcUpWDD0"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Publishing Quality Research">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              PLANNING YOUR RESEARCH TO PUBLISH IN HIGH IMPACT JOURNALS (Part 1)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 23-Nov-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=6x6WczcvtJY&t=1s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Publishing Quality Research">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              PLANNING YOUR RESEARCH TO PUBLISH IN HIGH IMPACT JOURNALS (part 2)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 23-Nov-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=ZNkmBbedIDg&t=386s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Publishing Quality Research">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              PLANNING YOUR RESEARCH TO PUBLISH IN HIGH IMPACT JOURNALS (Part 4)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 23-Nov-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=1I3U5GpnLv0&t=1s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Publishing Quality Research">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              PLANNING YOUR RESEARCH TO PUBLISH IN HIGH IMPACT JOURNALS part 3
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 23-Nov-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=Kz_bw7oUdR4&t=183s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Publishing Quality Research">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Planning your Publication Pathways to Success
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 12-Dec-2023
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=it7_gZUgcUM"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Publishing Quality Research">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Submission and Publication
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 23-Jan-2025
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=3ebdW01Yhh0"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Publishing Quality Research">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Post-Publication (Special Event for Bentham Ambassadors)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 6-Mar-2025
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=4o2-hBtl1aw"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Publishing Quality Research">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Powering Through the Research Cycle, from Idea to Publication
+              (Name & Discrip Change on Website)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 21-Mar-2024
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=lvfBxFcZrxM"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Boosting Your Citation">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Boosting Your Citation Rate: Research Impact (Bentham Science -
+              DotLib Webinar) - Part 1
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 18-Aug-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=ZrA7H73Boxs&t=304s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Boosting Your Citation">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Boosting Your Citation Rate: Research Impact (Bentham Science -
+              DotLib Webinar) - Part 2
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 18-Aug-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=03BT3I6w3Io"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Boosting Your Citation">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Boosting Your Citation Rate: Research Impact (Bentham Science -
+              DotLib Webinar) - Part 3
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 18-Aug-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=XIIApbVJock"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Boosting Your Citation">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Boosting Your Citation Rate: Research Impact (Bentham Science -
+              DotLib Webinar) - Part 4
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 18-Aug-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=hhgGEgqgOIQ"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Boosting Your Citation">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Boosting Your Citation Rate: Research Impact (Bentham Science -
+              DotLib Webinar) - Part 5
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 18-Aug-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=tW1lLtWmfu4"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Boosting Your Citation">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              CITATION BOOSTER: ENHANCING THE REACH, READERSHIP, AND VISIBILITY
+              OF YOUR PUBLICATIONS (PART 01)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 1-Mar-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=yAMQTs18aBg"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Boosting Your Citation">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              CITATION BOOSTER: ENHANCING THE REACH, READERSHIP, AND VISIBILITY
+              OF YOUR PUBLICATIONS (PART 02)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 1-Mar-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=CEWgusTnPt8"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Boosting Your Citation">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              CITATION BOOSTER: ENHANCING THE REACH, READERSHIP, AND VISIBILITY
+              OF YOUR PUBLICATIONS (PART 03)
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 1-Mar-2021
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=yl0bBL_xjuk"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events FAQ">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Burning Questions! We Answer YOUR Top FAQs of the Year
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 12-Dec-2024
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=2_J-3jLeK2k&t=6s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Miscellaneous">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Working from Home
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 28-May-2020
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=Zo9_LmUBYIc&t=3s"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Miscellaneous">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              ESSENTIAL SKILLS FOR EFFECTIVE RESEARCHERS
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 17-Feb-2022
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=xjsTYbeMhQo"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cw-item partnering_events Miscellaneous">
+          <div class="title">
+            <h5 class="border-bottom pb-2 text-capitalize">
+              Top-To-Bottom! Success Tips For The Whole Research Cycle
+            </h5>
+          </div>
+          <div class="times">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="meta">
+                  <ul>
+                    <li>
+                      <i class="fa fa-calendar-check-o me-2"></i> 20-Mar-2025
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="action">
+                  <a
+                    class="th-btn"
+                    href="https://www.youtube.com/watch?v=CDbpJyuTrbw"
+                    >View Webinar <i class="btn-arrow"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="text-center mt-4 mb-4"
+          id="view-more-container"
+          style="display: none"
+        >
+          <button id="view-more-btn" class="th-btn" onclick="loadMoreItems()">
+            View More
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  let itemsPerLoad = 10;
+  let visibleCount = 0;
+
+  /* ---------- AUTO UPCOMING DETECTION ---------- */
+
+  function markUpcomingEvents() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    document.querySelectorAll(".partnering_events").forEach((card) => {
+      const text = card.innerText;
+
+      const match = text.match(/(\d{1,2}[- ]?[A-Za-z]{3,9}[- ]?\d{2,4})/i);
+
+      if (!match) return;
+
+      const clean = match[0]
+        .replace(/-/g, " ")
+        .replace(/(\d+)(st|nd|rd|th)/, "$1");
+
+      const eventDate = new Date(clean);
+
+      if (!isNaN(eventDate) && eventDate >= today) {
+        card.classList.add("Upcoming");
+      }
+    });
+  }
+
+  /* ---------- FILTER SYSTEM ---------- */
+
+  function filterSelection(type) {
+    document.documentElement.scrollTop = 0;
+
+    const cards = document.querySelectorAll(".partnering_events");
+
+    const heading = document.getElementById("category_type");
+
+    visibleCount = 0;
+    let hasData = false;
+
+    cards.forEach((card) => {
+      card.classList.remove("show", "filtered");
+    });
+
+    if (type === "All") {
+      heading.style.display = "none";
+
+      cards.forEach((card) => {
+        card.classList.add("filtered");
+        hasData = true;
+      });
+    } else {
+      heading.style.display = "block";
+      heading.innerText = type;
+
+      cards.forEach((card) => {
+        if (card.className.includes(type)) {
+          card.classList.add("filtered");
+          hasData = true;
+        }
+      });
+    }
+
+    const noDataMsg = document.getElementById("no-data-msg");
+    if (!hasData) {
+      if (noDataMsg) noDataMsg.style.display = "block";
+    } else {
+      if (noDataMsg) noDataMsg.style.display = "none";
+    }
+
+    loadMoreItems();
+  }
+
+  /* ---------- LOAD ITEMS ---------- */
+
+  function loadMoreItems() {
+    const viewMoreContainer = document.getElementById("view-more-container");
+    if (viewMoreContainer) viewMoreContainer.style.display = "none";
+
+    const items = document.querySelectorAll(".partnering_events.filtered");
+
+    let next = visibleCount + itemsPerLoad;
+
+    for (let i = visibleCount; i < next; i++) {
+      if (items[i]) {
+        items[i].classList.add("show");
+      }
+    }
+
+    visibleCount = next;
+
+    if (visibleCount < items.length) {
+      if (viewMoreContainer) viewMoreContainer.style.display = "block";
+    }
+  }
+
+  /* ---------- INIT ---------- */
+
+  document.addEventListener("DOMContentLoaded", () => {
+    markUpcomingEvents();
+
+    const buttons = document.querySelectorAll(".cw-item");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        buttons.forEach((b) => b.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+
+    filterSelection("All");
+  });
+</script>
